@@ -25,7 +25,7 @@ function About() {
       draft
     >
       <div className="grid gap-10 md:grid-cols-2">
-        <div className="flex aspect-[4/5] items-center justify-center bg-stone p-6 text-center text-muted-foreground">
+        <div className="flex aspect-[4/5] items-center justify-center bg-cream p-6 text-center text-muted-foreground">
           [Foto van de oprichter(s) of van de plek waar het begon]
         </div>
         <div className="space-y-6">

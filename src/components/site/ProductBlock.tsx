@@ -5,7 +5,7 @@ import type { Product } from "@/content/products";
 import { formatPrice } from "@/lib/format";
 import { useTr } from "@/lib/i18n";
 
-import { ProductArt } from "./ProductArt";
+import { ProductMedia } from "./ProductMedia";
 
 /** Groot productblok voor de homepage. Met weinig producten krijgt elk product veel ruimte. */
 export function ProductBlock({ product, index }: { product: Product; index: number }) {
@@ -17,9 +17,9 @@ export function ProductBlock({ product, index }: { product: Product; index: numb
   return (
     <article className="grid items-stretch md:grid-cols-2">
       <div
-        className={`aspect-square bg-stone md:aspect-auto md:min-h-[560px] ${reversed ? "md:order-2" : ""}`}
+        className={`aspect-square bg-cream md:aspect-auto md:min-h-[560px] ${reversed ? "md:order-2" : ""}`}
       >
-        <ProductArt art={product.art} label={name} className="size-full" />
+        <ProductMedia product={product} />
       </div>
       <div
         className={`flex flex-col justify-center gap-5 px-6 py-12 sm:px-12 lg:px-20 ${reversed ? "md:order-1" : ""}`}

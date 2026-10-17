@@ -4,17 +4,16 @@ import type { Product } from "@/content/products";
 import { formatPrice } from "@/lib/format";
 import { useTr } from "@/lib/i18n";
 
-import { ProductArt } from "./ProductArt";
+import { ProductMedia } from "./ProductMedia";
 
 export function ProductCard({ product }: { product: Product }) {
   const tr = useTr();
   const name = tr(product.name);
   return (
     <Link to="/producten/$slug" params={{ slug: product.slug }} className="group block text-center">
-      <div className="aspect-square overflow-hidden bg-stone">
-        <ProductArt
-          art={product.art}
-          label={name}
+      <div className="aspect-square overflow-hidden bg-cream">
+        <ProductMedia
+          product={product}
           className="size-full transition-transform duration-500 group-hover:scale-105"
         />
       </div>

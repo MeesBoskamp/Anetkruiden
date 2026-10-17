@@ -42,7 +42,7 @@ export function Footer() {
         </div>
 
         <nav aria-label="Shop">
-          <h2 className="display text-xl text-leaf">Shop</h2>
+          <h2 className="display text-xl text-calendula">Shop</h2>
           <ul className="mt-4 space-y-2 text-sm">
             {products.map((p) => (
               <li key={p.slug}>
@@ -59,7 +59,7 @@ export function Footer() {
         </nav>
 
         <nav aria-label="Info">
-          <h2 className="display text-xl text-leaf">Info</h2>
+          <h2 className="display text-xl text-calendula">Info</h2>
           <ul className="mt-4 space-y-2 text-sm">
             {info.map((l) => (
               <li key={l.to}>
@@ -72,7 +72,7 @@ export function Footer() {
         </nav>
 
         <nav aria-label={tr({ nl: "Juridisch", en: "Legal" })}>
-          <h2 className="display text-xl text-leaf">{tr({ nl: "Juridisch", en: "Legal" })}</h2>
+          <h2 className="display text-xl text-calendula">{tr({ nl: "Juridisch", en: "Legal" })}</h2>
           <ul className="mt-4 space-y-2 text-sm">
             {legal.map((l) => (
               <li key={l.to}>

@@ -1,8 +1,8 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 
 import { AddToCart } from "@/components/site/AddToCart";
-import { ProductArt } from "@/components/site/ProductArt";
 import { ProductCard } from "@/components/site/ProductCard";
+import { ProductMedia } from "@/components/site/ProductMedia";
 import {
   Accordion,
   AccordionContent,
@@ -65,9 +65,18 @@ function ProductPage() {
       {/* 1. Hero */}
       <section className="mx-auto grid max-w-[1600px] gap-10 px-4 pt-8 sm:px-6 lg:grid-cols-2 lg:gap-20 lg:pt-14">
         <div className="lg:sticky lg:top-24 lg:self-start">
-          <div className="aspect-square bg-stone">
-            <ProductArt art={product.art} label={name} className="size-full" />
+          <div className="aspect-square bg-cream">
+            <ProductMedia product={product} />
           </div>
+          {product.images && product.images.length > 1 && (
+            <div className="mt-3 grid grid-cols-2 gap-3">
+              {product.images.slice(1).map((_, i) => (
+                <div key={i} className="aspect-square bg-cream">
+                  <ProductMedia product={product} image={i + 1} />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
         <div className="flex flex-col justify-center gap-6 py-4 lg:py-16">
           <nav aria-label="Broodkruimels" className="text-sm text-muted-foreground">
@@ -78,11 +87,13 @@ function ProductPage() {
             <span>{name}</span>
           </nav>
           {product.placeholder && (
-            <p className="w-fit bg-clay px-3 py-1 text-xs font-medium uppercase tracking-wider text-white">
+            <p className="w-fit bg-oak px-3 py-1 text-xs font-medium uppercase tracking-wider text-white">
               {tr({ nl: "Voorbeeldproduct", en: "Example product" })}
             </p>
           )}
-          <h1 className="display text-6xl sm:text-8xl">{name}</h1>
+          <h1 className="display text-5xl sm:text-6xl xl:text-7xl [overflow-wrap:anywhere]">
+            {name}
+          </h1>
           <p className="text-xl">{tr(product.tagline)}</p>
           <p className="text-muted-foreground">{tr(product.short)}</p>
           <p className="text-2xl">
@@ -130,7 +141,7 @@ function ProductPage() {
       </section>
 
       {/* 4. Ingrediënten en herkomst */}
-      <section className="mt-28 bg-stone">
+      <section className="mt-28 bg-cream">
         <div className="mx-auto grid max-w-[1600px] gap-10 px-4 py-20 sm:px-6 lg:grid-cols-[1fr_1.4fr]">
           <h2 className="display text-5xl sm:text-6xl">
             {tr({ nl: "Ingrediënten en herkomst", en: "Ingredients and origin" })}
@@ -163,8 +174,8 @@ function ProductPage() {
               <p className="mt-3 text-muted-foreground">{tr(u.body)}</p>
             </div>
           ))}
-          <div className="border-l-4 border-leaf bg-ink p-8 text-white">
-            <p className="text-sm font-medium uppercase tracking-wider text-leaf">Tip</p>
+          <div className="bg-ink p-8 text-white">
+            <p className="text-sm font-medium uppercase tracking-wider text-calendula">Tip</p>
             <p className="mt-3 text-lg">{tr(product.tip)}</p>
           </div>
         </div>

@@ -19,7 +19,7 @@ export function PageShell({
         {intro && <p className="mt-6 max-w-2xl text-lg text-muted-foreground">{intro}</p>}
       </header>
       {draft && (
-        <p className="mb-10 border-l-4 border-clay bg-stone px-4 py-3 text-sm">
+        <p className="mb-10 border-l-4 border-oak bg-cream px-4 py-3 text-sm">
           Conceptversie: deze tekst is een voorbeeld en moet worden nagelopen en aangevuld voordat
           de webshop live gaat. Waarden tussen [haken] moeten nog worden ingevuld.
         </p>

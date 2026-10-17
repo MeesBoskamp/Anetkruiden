@@ -22,7 +22,7 @@ export function AnnouncementBar() {
 
   return (
     <div
-      className="bg-stone text-ink"
+      className="bg-cream text-ink"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocus={() => setPaused(true)}

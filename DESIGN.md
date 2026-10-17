@@ -24,29 +24,29 @@ Wij hebben **5 producten** in plaats van 71. Dus geen filters, sortering of rast
 
 Natuurlijk en ambachtelijk, maar met dezelfde strakke, zelfverzekerde bouw: grote beelden, grote koppen, veel ruimte, scherpe vormen.
 
-### Kleuren (voorlopig, vervangen zodra het logo er is)
+### Kleuren (merkstijl ANET, afgeleid van etiket, flyer en productfoto's)
 
-| Rol                    | Waarde    | Gebruik                                  |
-| ---------------------- | --------- | ---------------------------------------- |
-| Inkt (diep groenzwart) | `#0F1A14` | hero, header over beeld, footer          |
-| Bos (primair)          | `#1F4D2E` | knoppen op licht, koppen-accent          |
-| Blad (accent)          | `#7FB069` | vierkantjes, markeringen, hover          |
-| Papier                 | `#F5F3EC` | pagina-achtergrond                       |
-| Steen                  | `#E9E6DB` | kaartvlakken, productachtergrond         |
-| Klei                   | `#B5532B` | signaalkleur (bijv. "bijna uitverkocht") |
-| Wit                    | `#FFFFFF` | knop op donkere beelden, tekst op donker |
+Bron van waarheid is het designsysteem "ANET Designsysteem" (Claude Artifact). Tokens staan in `src/styles.css`.
 
-### Typografie
+| Token (Tailwind) | Waarde                | Gebruik                                                         |
+| ---------------- | --------------------- | --------------------------------------------------------------- |
+| `ink`            | `#000000`             | tekst, footer                                                   |
+| `brand`          | `#D66211`             | oranje van het etiket: hero en grote vlakken (wit alleen groot) |
+| `brand-deep`     | `#B4510C`             | knoppen, links, kleine witte tekst op oranje (wit: 5,1:1)       |
+| `calendula`      | `#F0952B`             | accenten, kopjes in de footer                                   |
+| `paper`          | `#FFFFFF`             | pagina-achtergrond                                              |
+| `cream`          | `#F7F1E8`             | kaartvlakken, secties, aankondigingsbalk                        |
+| `kraft` / `oak`  | `#B98B5E` / `#8A5A2B` | warme accenten uit de productfoto's                             |
 
-- Koppen: zware smalle sans in hoofdletters (voorstel **Barlow Condensed**, 700/800).
-- Tekst: rustige sans (voorstel **Inter**).
-- Sectiekoppen mogen in gewone zinsopbouw, hoofdletters voor hero's en producttitels.
-- Open punt: lettertypes lokaal meeleveren in plaats van van Google laden (privacy/AVG). Eerst met systeemfallbacks bouwen.
+### Typografie (twee lettertypen, zelf gehost in `public/fonts`)
+
+- **Liberation Serif** (Regular, Italic): alleen het logo en de koppen. Titels zijn cursief en in hoofdletters (`.display`); regels als "MAAK JE EIGEN" gebruiken `.eyebrow`.
+- **Lato** (300, 400, 700): alle tekst, knoppen (hoofdletters, vet), rubriekslabels (`.section-label`).
 
 ### Vormtaal
 
-- Hoeken: 0 tot 2 px. Dunne randen (1 px). Knoppen rechthoekig: wit op donker, inkt op licht.
-- Een klein vierkantje (■) in bladgroen als terugkerend accent.
+- Hoeken: 0 tot 2 px. Dunne randen (1 px). Knoppen rechthoekig: wit op oranje/donker, zwart op licht.
+- Een klein vierkantje (■) in merkoranje als terugkerend accent. Op oranje vlakken een dunne witte kaderlijn, zoals op het etiket.
 - Veel witruimte, grote beelden, één duidelijke actie per scherm.
 
 ## 3. Onderdelen (fase 1)
@@ -88,6 +88,6 @@ Juridisch: geen gezondheidsclaims in productteksten (zie PLAN.md, fase 6).
 
 ## 6. Beeld
 
-- Nog geen foto's: tijdelijk rustige kleurvlakken en eenvoudige illustraties met bladvormen, duidelijk als placeholder te vervangen.
+- Product 1 (Calendulazalf) heeft echte foto's in `public/images/product-1/`. Overige producten: tijdelijk rustige kleurvlakken en eenvoudige illustraties met bladvormen, duidelijk als placeholder te vervangen.
 - Zodra de echte foto's er zijn: grote, rustige foto's op `Steen`, sfeerbeelden voor hero's.
 - Alle beeld komt uit één map met vaste bestandsnamen per product, zodat vervangen eenvoudig is.

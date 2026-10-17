@@ -4,27 +4,42 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Zelf gehoste lettertypes (SIL Open Font License): geen verbinding met Google nodig. */
+/* Zelf gehoste lettertypes: geen verbinding met Google nodig.
+ * Liberation Serif (SIL OFL): logo en koppen. Lato (SIL OFL): alle tekst. */
 @font-face {
-  font-family: "Barlow Condensed";
+  font-family: "Liberation Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/liberation-serif-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Liberation Serif";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/liberation-serif-latin-400-italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/fonts/lato-latin-300-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/lato-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Lato";
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url("/fonts/barlow-condensed-latin-700-normal.woff2") format("woff2");
-}
-@font-face {
-  font-family: "Barlow Condensed";
-  font-style: normal;
-  font-weight: 800;
-  font-display: swap;
-  src: url("/fonts/barlow-condensed-latin-800-normal.woff2") format("woff2");
-}
-@font-face {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: swap;
-  src: url("/fonts/inter-latin-wght-normal.woff2") format("woff2");
+  src: url("/fonts/lato-latin-700-normal.woff2") format("woff2");
 }
 
 /*
@@ -42,14 +57,16 @@
  */
 
 @theme inline {
-  --font-display: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Liberation Serif", "Times New Roman", Times, serif;
+  --font-sans: "Lato", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --color-ink: var(--ink);
-  --color-forest: var(--forest);
-  --color-leaf: var(--leaf);
+  --color-brand: var(--brand);
+  --color-brand-deep: var(--brand-deep);
+  --color-calendula: var(--calendula);
   --color-paper: var(--paper);
-  --color-stone: var(--stone);
-  --color-clay: var(--clay);
+  --color-cream: var(--cream);
+  --color-kraft: var(--kraft);
+  --color-oak: var(--oak);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -93,13 +110,15 @@
 }
 
 :root {
-  /* Merkpalet Anetkruiden (voorlopig; zie DESIGN.md) */
-  --ink: oklch(0.205 0.02 160.1);
-  --forest: oklch(0.379 0.073 152);
-  --leaf: oklch(0.705 0.112 136.5);
-  --paper: oklch(0.964 0.01 93.6);
-  --stone: oklch(0.924 0.015 94.2);
-  --clay: oklch(0.559 0.138 41.4);
+  /* Merkpalet ANET (zie DESIGN.md en het designsysteem) */
+  --ink: oklch(0 0 0);
+  --brand: oklch(0.629 0.166 47.7); /* #D66211, oranje van het etiket */
+  --brand-deep: oklch(0.552 0.147 47.6); /* #B4510C, knoppen en kleine witte tekst */
+  --calendula: oklch(0.748 0.155 64); /* #F0952B */
+  --paper: oklch(1 0 0);
+  --cream: oklch(0.96 0.014 78.3); /* #F7F1E8 */
+  --kraft: oklch(0.671 0.083 65); /* #B98B5E */
+  --oak: oklch(0.511 0.089 62.8); /* #8A5A2B */
 
   --radius: 0.125rem;
   --background: var(--paper);
@@ -108,32 +127,32 @@
   --card-foreground: var(--ink);
   --popover: oklch(1 0 0);
   --popover-foreground: var(--ink);
-  --primary: var(--forest);
-  --primary-foreground: oklch(0.984 0.005 95);
-  --secondary: var(--stone);
+  --primary: var(--brand-deep);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: var(--cream);
   --secondary-foreground: var(--ink);
-  --muted: var(--stone);
-  --muted-foreground: oklch(0.499 0.017 157.8);
-  --accent: var(--leaf);
+  --muted: var(--cream);
+  --muted-foreground: oklch(0.409 0 0);
+  --accent: var(--calendula);
   --accent-foreground: var(--ink);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.863 0.019 93.7);
-  --input: oklch(0.863 0.019 93.7);
-  --ring: var(--forest);
-  --chart-1: var(--forest);
-  --chart-2: var(--leaf);
-  --chart-3: var(--clay);
+  --border: oklch(0.85 0.028 78.2);
+  --input: oklch(0.85 0.028 78.2);
+  --ring: var(--ink);
+  --chart-1: var(--brand-deep);
+  --chart-2: var(--calendula);
+  --chart-3: var(--oak);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
   --sidebar: var(--paper);
   --sidebar-foreground: var(--ink);
-  --sidebar-primary: var(--forest);
-  --sidebar-primary-foreground: oklch(0.984 0.005 95);
-  --sidebar-accent: var(--stone);
+  --sidebar-primary: var(--brand-deep);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: var(--cream);
   --sidebar-accent-foreground: var(--ink);
-  --sidebar-border: oklch(0.863 0.019 93.7);
-  --sidebar-ring: var(--forest);
+  --sidebar-border: oklch(0.85 0.028 78.2);
+  --sidebar-ring: var(--ink);
 }
 
 .dark {
@@ -191,13 +210,13 @@
   h2,
   h3 {
     font-family: var(--font-display);
-    font-weight: 800;
-    line-height: 0.95;
-    letter-spacing: 0.005em;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1;
   }
 
   :focus-visible {
-    outline: 2px solid var(--forest);
+    outline: 2px solid var(--ink);
     outline-offset: 2px;
   }
 
@@ -213,12 +232,37 @@
 }
 
 @layer components {
+  /* Titel zoals op de flyer: Liberation Serif Italic in hoofdletters. */
   .display {
     font-family: var(--font-display);
-    font-weight: 800;
+    font-style: italic;
+    font-weight: 400;
     text-transform: uppercase;
-    line-height: 0.92;
-    letter-spacing: 0.005em;
+    line-height: 1;
+  }
+
+  /* Regel boven een titel (MAAK JE EIGEN): hoofdletters, ruime letterafstand. */
+  .eyebrow {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-size: 0.875rem;
+  }
+
+  /* Rubriek met doorlopende lijn, zoals INHOUD en BEWAREN op het etiket. */
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-size: 0.8125rem;
+  }
+  .section-label::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: currentColor;
   }
 
   .square-mark::before {
@@ -227,7 +271,7 @@
     width: 0.5em;
     height: 0.5em;
     margin-right: 0.6em;
-    background: var(--leaf);
+    background: var(--brand);
     vertical-align: 0.05em;
   }
 
@@ -237,8 +281,10 @@
     justify-content: center;
     gap: 0.5rem;
     padding: 0.85rem 1.6rem;
-    font-size: 0.95rem;
-    font-weight: 500;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     border: 1px solid transparent;
     border-radius: 0;
     transition:
@@ -252,14 +298,14 @@
     color: var(--ink);
   }
   .btn-light:hover {
-    background: var(--leaf);
+    background: var(--cream);
   }
   .btn-dark {
     background: var(--ink);
     color: #fff;
   }
   .btn-dark:hover {
-    background: var(--forest);
+    background: var(--brand-deep);
   }
   .btn-outline {
     border-color: var(--ink);

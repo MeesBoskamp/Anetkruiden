@@ -39,7 +39,7 @@ export function Header() {
         "sticky top-0 z-40 h-[72px] transition-colors duration-200",
         isHome ? "-mb-[72px]" : "",
         overHero
-          ? "bg-transparent text-white"
+          ? "bg-transparent text-ink"
           : "border-b border-border bg-paper/95 text-ink backdrop-blur",
       ].join(" ")}
     >

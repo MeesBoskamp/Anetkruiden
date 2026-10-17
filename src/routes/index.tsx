@@ -46,27 +46,13 @@ function Index() {
   return (
     <>
       {/* Hero */}
-      <section className="relative flex min-h-[92vh] items-end overflow-hidden bg-ink text-white">
-        <svg
+      <section className="relative flex min-h-[92vh] items-end overflow-hidden bg-brand text-white">
+        {/* Dunne witte kaderlijn, zoals op het etiket */}
+        <div
           aria-hidden="true"
-          viewBox="0 0 1200 800"
-          preserveAspectRatio="xMidYMid slice"
-          className="absolute inset-0 size-full opacity-60"
-        >
-          <g fill="#1F4D2E">
-            <path d="M900 800 C760 650 740 380 900 180 C1060 380 1040 650 900 800 Z" />
-            <path
-              d="M1100 780 C1000 680 990 520 1090 400 C1190 520 1190 680 1100 780 Z"
-              opacity="0.8"
-            />
-            <path d="M700 800 C620 720 610 600 690 520 C770 600 780 720 700 800 Z" opacity="0.7" />
-          </g>
-          <g fill="#7FB069" opacity="0.5">
-            <path d="M980 790 C940 740 935 680 975 630 C1015 680 1020 740 980 790 Z" />
-          </g>
-        </svg>
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent" />
-        <div className="relative mx-auto w-full max-w-[1600px] px-4 pb-20 sm:px-6">
+          className="absolute inset-x-3 bottom-3 top-[84px] border border-white/90 sm:inset-x-5 sm:bottom-5"
+        />
+        <div className="relative mx-auto w-full max-w-[1600px] px-8 pb-24 sm:px-12">
           <h1 className="display max-w-4xl text-6xl sm:text-8xl lg:text-9xl">
             {tr({ nl: "Kruiden uit de natuur", en: "Herbs from nature" })}
           </h1>
@@ -99,7 +85,7 @@ function Index() {
         ))}
       </section>
       <p className="mt-10 text-center">
-        <Link to="/shop" className="underline underline-offset-4 hover:text-forest">
+        <Link to="/shop" className="underline underline-offset-4 hover:text-brand-deep">
           {tr({ nl: "Bekijk alle producten", en: "View all products" })}
         </Link>
       </p>
@@ -120,13 +106,13 @@ function Index() {
       </section>
 
       {/* Verhaal */}
-      <section className="bg-forest text-white">
+      <section className="bg-brand-deep text-white">
         <div className="mx-auto grid max-w-[1600px] gap-8 px-4 py-20 sm:px-6 md:grid-cols-2 md:items-center">
           <h2 className="display text-5xl sm:text-7xl">
             {tr({ nl: "Waarom we zijn begonnen", en: "Why we started" })}
           </h2>
           <div>
-            <p className="text-lg text-white/85">
+            <p className="text-lg text-white">
               {tr({
                 nl: "Voorbeeldtekst: hier komt een korte versie van het verhaal achter Anetkruiden.",
                 en: "Example text: a short version of the story behind Anetkruiden goes here.",

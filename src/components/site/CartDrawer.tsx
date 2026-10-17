@@ -7,7 +7,7 @@ import { useCart } from "@/lib/cart";
 import { formatPrice } from "@/lib/format";
 import { useTr } from "@/lib/i18n";
 
-import { ProductArt } from "./ProductArt";
+import { ProductMedia } from "./ProductMedia";
 
 export function CartDrawer() {
   const tr = useTr();
@@ -46,7 +46,7 @@ export function CartDrawer() {
                 const name = tr(product.name);
                 return (
                   <li key={item.slug} className="flex gap-4 py-5">
-                    <ProductArt art={product.art} className="size-20 shrink-0" />
+                    <ProductMedia product={product} className="size-20 shrink-0" />
                     <div className="flex flex-1 flex-col">
                       <div className="flex items-start justify-between gap-2">
                         <Link

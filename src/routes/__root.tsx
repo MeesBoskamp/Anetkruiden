@@ -20,7 +20,7 @@ function NotFoundComponent() {
   return (
     <div className="flex min-h-[70vh] items-center justify-center px-4 pt-[72px]">
       <div className="max-w-md text-center">
-        <p className="display text-8xl text-forest">404</p>
+        <p className="display text-8xl text-brand-deep">404</p>
         <h1 className="display mt-4 text-3xl">Pagina niet gevonden</h1>
         <p className="mt-3 text-muted-foreground">
           Deze pagina bestaat niet of is verplaatst. / This page does not exist or has moved.
