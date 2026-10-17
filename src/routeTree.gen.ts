@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AlgemeneVoorwaardenRouteImport } from './routes/algemene-voorwaarden'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as OverOnsRouteImport } from './routes/over-ons'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as ShopRouteImport } from './routes/shop'
+import { Route as VerzendingEnRetourRouteImport } from './routes/verzending-en-retour'
+import { Route as ProductenSlugRouteImport } from './routes/producten/$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlgemeneVoorwaardenRoute = AlgemeneVoorwaardenRouteImport.update({
+  id: '/algemene-voorwaarden',
+  path: '/algemene-voorwaarden',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OverOnsRoute = OverOnsRouteImport.update({
+  id: '/over-ons',
+  path: '/over-ons',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShopRoute = ShopRouteImport.update({
+  id: '/shop',
+  path: '/shop',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VerzendingEnRetourRoute = VerzendingEnRetourRouteImport.update({
+  id: '/verzending-en-retour',
+  path: '/verzending-en-retour',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductenSlugRoute = ProductenSlugRouteImport.update({
+  id: '/producten/$slug',
+  path: '/producten/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/algemene-voorwaarden': typeof AlgemeneVoorwaardenRoute
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/over-ons': typeof OverOnsRoute
+  '/privacy': typeof PrivacyRoute
+  '/shop': typeof ShopRoute
+  '/verzending-en-retour': typeof VerzendingEnRetourRoute
+  '/producten/$slug': typeof ProductenSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/algemene-voorwaarden': typeof AlgemeneVoorwaardenRoute
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/over-ons': typeof OverOnsRoute
+  '/privacy': typeof PrivacyRoute
+  '/shop': typeof ShopRoute
+  '/verzending-en-retour': typeof VerzendingEnRetourRoute
+  '/producten/$slug': typeof ProductenSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/algemene-voorwaarden': typeof AlgemeneVoorwaardenRoute
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/over-ons': typeof OverOnsRoute
+  '/privacy': typeof PrivacyRoute
+  '/shop': typeof ShopRoute
+  '/verzending-en-retour': typeof VerzendingEnRetourRoute
+  '/producten/$slug': typeof ProductenSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/algemene-voorwaarden'
+    | '/contact'
+    | '/faq'
+    | '/over-ons'
+    | '/privacy'
+    | '/shop'
+    | '/verzending-en-retour'
+    | '/producten/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/algemene-voorwaarden'
+    | '/contact'
+    | '/faq'
+    | '/over-ons'
+    | '/privacy'
+    | '/shop'
+    | '/verzending-en-retour'
+    | '/producten/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/algemene-voorwaarden'
+    | '/contact'
+    | '/faq'
+    | '/over-ons'
+    | '/privacy'
+    | '/shop'
+    | '/verzending-en-retour'
+    | '/producten/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AlgemeneVoorwaardenRoute: typeof AlgemeneVoorwaardenRoute
+  ContactRoute: typeof ContactRoute
+  FaqRoute: typeof FaqRoute
+  OverOnsRoute: typeof OverOnsRoute
+  PrivacyRoute: typeof PrivacyRoute
+  ShopRoute: typeof ShopRoute
+  VerzendingEnRetourRoute: typeof VerzendingEnRetourRoute
+  ProductenSlugRoute: typeof ProductenSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +156,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/algemene-voorwaarden': {
+      id: '/algemene-voorwaarden'
+      path: '/algemene-voorwaarden'
+      fullPath: '/algemene-voorwaarden'
+      preLoaderRoute: typeof AlgemeneVoorwaardenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/over-ons': {
+      id: '/over-ons'
+      path: '/over-ons'
+      fullPath: '/over-ons'
+      preLoaderRoute: typeof OverOnsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shop': {
+      id: '/shop'
+      path: '/shop'
+      fullPath: '/shop'
+      preLoaderRoute: typeof ShopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/verzending-en-retour': {
+      id: '/verzending-en-retour'
+      path: '/verzending-en-retour'
+      fullPath: '/verzending-en-retour'
+      preLoaderRoute: typeof VerzendingEnRetourRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/producten/$slug': {
+      id: '/producten/$slug'
+      path: '/producten/$slug'
+      fullPath: '/producten/$slug'
+      preLoaderRoute: typeof ProductenSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AlgemeneVoorwaardenRoute: AlgemeneVoorwaardenRoute,
+  ContactRoute: ContactRoute,
+  FaqRoute: FaqRoute,
+  OverOnsRoute: OverOnsRoute,
+  PrivacyRoute: PrivacyRoute,
+  ShopRoute: ShopRoute,
+  VerzendingEnRetourRoute: VerzendingEnRetourRoute,
+  ProductenSlugRoute: ProductenSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
