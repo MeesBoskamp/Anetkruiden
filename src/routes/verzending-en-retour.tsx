@@ -26,8 +26,8 @@ function Shipping() {
     >
       <h2>Verzending</h2>
       <ul>
-        <li>We verzenden voorlopig alleen binnen Nederland.</li>
-        <li>Bestellingen worden handmatig verzonden. [Verzendtijd en vervoerder invullen.]</li>
+        <li>Ik verzend voorlopig alleen binnen Nederland.</li>
+        <li>Ik pak en verstuur elke bestelling zelf. [Verzendtijd en vervoerder invullen.]</li>
         <li>Verzendkosten: [bedrag invullen]. Gratis verzending vanaf [bedrag invullen].</li>
       </ul>
 
@@ -43,7 +43,7 @@ function Shipping() {
       </ul>
 
       <h2>Beschadigd of verkeerd ontvangen?</h2>
-      <p>Neem contact met ons op met een foto, dan lossen we het samen op.</p>
+      <p>Neem contact met me op met een foto, dan lossen we het samen op.</p>
     </PageShell>
   );
 }

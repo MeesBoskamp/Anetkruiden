@@ -21,8 +21,8 @@ function Contact() {
     <PageShell
       title="Contact"
       intro={tr({
-        nl: "Een vraag over een product of je bestelling? Stuur ons een bericht.",
-        en: "A question about a product or your order? Send us a message.",
+        nl: "Een vraag over een product of je bestelling? Stuur me een bericht.",
+        en: "A question about a product or your order? Send me a message.",
       })}
     >
       <dl className="grid gap-8 sm:grid-cols-2">

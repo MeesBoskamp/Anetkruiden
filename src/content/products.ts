@@ -54,8 +54,8 @@ const commonFaq: Product["faq"] = [
   {
     q: { nl: "Wanneer wordt mijn bestelling verzonden?", en: "When will my order ship?" },
     a: {
-      nl: "Bestellingen worden handmatig verzonden. [Levertijd nog invullen.]",
-      en: "Orders are shipped by hand. [Delivery time to be filled in.]",
+      nl: "Ik pak en verstuur elke bestelling zelf. [Levertijd nog invullen.]",
+      en: "I pack and ship every order myself. [Delivery time to be filled in.]",
     },
   },
 ];
@@ -190,7 +190,7 @@ export const products: Product[] = [
     facts: commonFacts("30 g"),
     story: [
       {
-        nl: "Voorbeeldtekst: vertel hier waarom dit kruid in de keuken thuishoort en hoe jullie het zelf gebruiken.",
+        nl: "Voorbeeldtekst: vertel hier waarom dit kruid in de keuken thuishoort en hoe je het zelf gebruikt.",
       },
     ],
     ingredients: { nl: "Brandnetelblad. [Controleren en aanvullen.]" },
@@ -258,7 +258,7 @@ export const products: Product[] = [
     facts: commonFacts("40 g"),
     story: [
       {
-        nl: "Voorbeeldtekst: vertel hier uit welke kruiden de mix bestaat en waarom jullie die combinatie kozen.",
+        nl: "Voorbeeldtekst: vertel hier uit welke kruiden de mix bestaat en waarom je die combinatie koos.",
       },
     ],
     ingredients: { nl: "[Samenstelling nog invullen.]" },

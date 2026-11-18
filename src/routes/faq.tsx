@@ -30,12 +30,12 @@ const items: { q: Text; a: Text }[] = [
     },
   },
   {
-    q: { nl: "Waar verzenden jullie naartoe?", en: "Where do you ship?" },
+    q: { nl: "Waar verzend je naartoe?", en: "Where do you ship?" },
     a: { nl: "Voorlopig alleen binnen Nederland.", en: "For now only within the Netherlands." },
   },
   {
     q: { nl: "Hoe snel wordt mijn bestelling verzonden?", en: "How quickly is my order shipped?" },
-    a: { nl: "[Verzendtijd invullen.] Bestellingen worden handmatig verzonden." },
+    a: { nl: "[Verzendtijd invullen.] Ik pak en verstuur elke bestelling zelf." },
   },
   {
     q: { nl: "Hoe bewaar ik de producten?", en: "How should I store the products?" },
@@ -47,7 +47,7 @@ const items: { q: Text; a: Text }[] = [
   },
   {
     q: { nl: "Ik heb een andere vraag.", en: "I have another question." },
-    a: { nl: "Neem contact met ons op via de contactpagina." },
+    a: { nl: "Neem contact met me op via de contactpagina." },
   },
 ];
 

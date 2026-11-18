@@ -25,5 +25,5 @@ export const announcements: Text[] = [
     nl: `Gratis verzending vanaf €${site.freeShippingFromCents / 100} (voorbeeld)`,
     en: `Free shipping from €${site.freeShippingFromCents / 100} (example)`,
   },
-  { nl: "Wij verzenden binnen Nederland", en: "We ship within the Netherlands" },
+  { nl: "Ik verzend binnen Nederland", en: "I ship within the Netherlands" },
 ];
