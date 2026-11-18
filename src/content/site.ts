@@ -17,7 +17,10 @@ export const site = {
 
 /** Berichten in de aankondigingsbalk. */
 export const announcements: Text[] = [
-  { nl: "Welkom bij Anetkruiden", en: "Welcome to Anetkruiden" },
+  {
+    nl: "Kruiden uit eigen tuin in het Naardermeer",
+    en: "Herbs from my own garden in the Naardermeer",
+  },
   {
     nl: `Gratis verzending vanaf €${site.freeShippingFromCents / 100} (voorbeeld)`,
     en: `Free shipping from €${site.freeShippingFromCents / 100} (example)`,

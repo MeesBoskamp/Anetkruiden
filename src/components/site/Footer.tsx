@@ -11,7 +11,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   const info = [
-    { to: "/over-ons", label: tr({ nl: "Over ons", en: "About us" }) },
+    { to: "/over-ons", label: tr({ nl: "Over mij", en: "About me" }) },
     { to: "/faq", label: tr({ nl: "Veelgestelde vragen", en: "FAQ" }) },
     {
       to: "/verzending-en-retour",
@@ -35,8 +35,8 @@ export function Footer() {
           <Logo className="text-3xl" />
           <p className="mt-4 max-w-xs text-sm text-white/70">
             {tr({
-              nl: "Kruiden uit de natuur, zonder onnodige poespas.",
-              en: "Herbs from nature, without unnecessary fuss.",
+              nl: "Kruidenthee en DIY-pakketten uit een kruidentuin in het Naardermeer.",
+              en: "Herbal tea and DIY kits from a herb garden in the Naardermeer.",
             })}
           </p>
         </div>

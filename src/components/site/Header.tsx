@@ -28,7 +28,7 @@ export function Header() {
 
   const links = [
     { to: "/shop", label: tr({ nl: "Shop", en: "Shop" }) },
-    { to: "/over-ons", label: tr({ nl: "Over ons", en: "About us" }) },
+    { to: "/over-ons", label: tr({ nl: "Over mij", en: "About me" }) },
     { to: "/faq", label: tr({ nl: "Veelgestelde vragen", en: "FAQ" }) },
     { to: "/contact", label: tr({ nl: "Contact", en: "Contact" }) },
   ] as const;
