@@ -12,7 +12,7 @@ import { useTr, type Text } from "@/lib/i18n";
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
-      { title: "Veelgestelde vragen | Anetkruiden" },
+      { title: "Veelgestelde vragen | ANET" },
       {
         name: "description",
         content: "Antwoorden op veelgestelde vragen over bestellen, verzenden en bewaren.",

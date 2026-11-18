@@ -23,7 +23,7 @@ export const Route = createFileRoute("/producten/$slug")({
   head: ({ loaderData }) => {
     const product = loaderData?.product;
     if (!product) return {};
-    const title = `${product.name.nl} | Anetkruiden`;
+    const title = `${product.name.nl} | ANET`;
     return {
       meta: [
         { title },

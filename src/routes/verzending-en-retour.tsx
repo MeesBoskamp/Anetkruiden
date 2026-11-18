@@ -6,7 +6,7 @@ import { useTr } from "@/lib/i18n";
 export const Route = createFileRoute("/verzending-en-retour")({
   head: () => ({
     meta: [
-      { title: "Verzending en retour | Anetkruiden" },
+      { title: "Verzending en retour | ANET" },
       { name: "description", content: "Informatie over verzending, levertijd en retourneren." },
     ],
   }),

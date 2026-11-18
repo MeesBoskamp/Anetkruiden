@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
+import { withBrand } from "@/components/site/Brand";
 import { ProductBlock } from "@/components/site/ProductBlock";
 import { products } from "@/content/products";
 import { useTr } from "@/lib/i18n";
@@ -7,13 +8,13 @@ import { useTr } from "@/lib/i18n";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Anetkruiden" },
+      { title: "ANET | Kruidenthee en DIY-pakketten" },
       {
         name: "description",
         content:
           "ANET: kruidenthee en DIY-pakketten, gemaakt met kruiden uit een eigen kruidentuin in het Naardermeer.",
       },
-      { property: "og:title", content: "Anetkruiden" },
+      { property: "og:title", content: "ANET | Kruidenthee en DIY-pakketten" },
       {
         property: "og:description",
         content:
@@ -122,10 +123,12 @@ function Index() {
           </h2>
           <div>
             <p className="text-lg text-white">
-              {tr({
-                nl: "Een paar jaar geleden bezocht ik in Frankrijk een prachtige kruidentuin, waar theemengsels en zalven werden gemaakt van kruiden uit die tuin. Begin 2026 kreeg ik de kans om een stukje grond in het Naardermeer om te toveren tot mijn eigen kruidentuin. Wat begon als een experiment, groeide uit tot ANET.",
-                en: "A few years ago I visited a beautiful herb garden in France, where tea blends and salves were made from the herbs grown there. In early 2026 I got the chance to turn a small plot of land in the Naardermeer into my own herb garden. What started as an experiment grew into ANET.",
-              })}
+              {withBrand(
+                tr({
+                  nl: "Een paar jaar geleden bezocht ik in Frankrijk een prachtige kruidentuin, waar theemengsels en zalven werden gemaakt van kruiden uit die tuin. Begin 2026 kreeg ik de kans om een stukje grond in het Naardermeer om te toveren tot mijn eigen kruidentuin. Wat begon als een experiment, groeide uit tot ANET.",
+                  en: "A few years ago I visited a beautiful herb garden in France, where tea blends and salves were made from the herbs grown there. In early 2026 I got the chance to turn a small plot of land in the Naardermeer into my own herb garden. What started as an experiment grew into ANET.",
+                }),
+              )}
             </p>
             <Link to="/over-ons" className="btn btn-light mt-8">
               {tr({ nl: "Lees mijn verhaal", en: "Read my story" })}

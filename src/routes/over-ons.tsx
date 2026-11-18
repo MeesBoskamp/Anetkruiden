@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
+import { withBrand } from "@/components/site/Brand";
 import { PageShell } from "@/components/site/PageShell";
 import { useTr } from "@/lib/i18n";
 
@@ -7,7 +8,7 @@ import { useTr } from "@/lib/i18n";
 export const Route = createFileRoute("/over-ons")({
   head: () => ({
     meta: [
-      { title: "Over mij | Anetkruiden" },
+      { title: "Over mij | ANET" },
       {
         name: "description",
         content:
@@ -58,10 +59,12 @@ function About() {
 
           <h2>{tr({ nl: "Zo ontstond ANET", en: "How ANET came about" })}</h2>
           <p>
-            {tr({
-              nl: "Wat begon als een experiment in de kruidentuin, groeide uit tot ANET. Onder deze naam maak ik kruidenthee en stel ik DIY-pakketten samen waarmee je zelf aan de slag kunt, bijvoorbeeld om calendulazalf te maken.",
-              en: "What started as an experiment in the herb garden grew into ANET. Under this name I make herbal tea and put together DIY kits so you can get started yourself, for example to make calendula salve.",
-            })}
+            {withBrand(
+              tr({
+                nl: "Wat begon als een experiment in de kruidentuin, groeide uit tot ANET. Onder deze naam maak ik kruidenthee en stel ik DIY-pakketten samen waarmee je zelf aan de slag kunt, bijvoorbeeld om calendulazalf te maken.",
+                en: "What started as an experiment in the herb garden grew into ANET. Under this name I make herbal tea and put together DIY kits so you can get started yourself, for example to make calendula salve.",
+              }),
+            )}
           </p>
           <p>
             {tr({
@@ -76,10 +79,12 @@ function About() {
             })}
           </p>
           <p>
-            {tr({
-              nl: "Met ANET wil ik die ontdekkingen graag delen. Zodat ook jij kunt genieten van de geuren, smaken en mogelijkheden van kruiden. Of je nu een kopje thee zet of zelf aan de slag gaat met een DIY-pakket.",
-              en: "With ANET I'd like to share those discoveries. So that you too can enjoy the scents, flavours and possibilities of herbs. Whether you're making a cup of tea or getting started with a DIY kit.",
-            })}
+            {withBrand(
+              tr({
+                nl: "Met ANET wil ik die ontdekkingen graag delen. Zodat ook jij kunt genieten van de geuren, smaken en mogelijkheden van kruiden. Of je nu een kopje thee zet of zelf aan de slag gaat met een DIY-pakket.",
+                en: "With ANET I'd like to share those discoveries. So that you too can enjoy the scents, flavours and possibilities of herbs. Whether you're making a cup of tea or getting started with a DIY kit.",
+              }),
+            )}
           </p>
           <p>{tr({ nl: "Veel plezier met ontdekken!", en: "Happy discovering!" })}</p>
           <p className="display text-4xl normal-case">Annette</p>

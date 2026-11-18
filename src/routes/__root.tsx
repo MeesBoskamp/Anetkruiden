@@ -78,14 +78,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Anetkruiden" },
-      { name: "description", content: "Anetkruiden: kruiden uit de natuur." },
+      { title: "ANET" },
+      {
+        name: "description",
+        content: "ANET: kruidenthee en DIY-pakketten uit een kruidentuin in het Naardermeer.",
+      },
       { name: "theme-color", content: "#0F1A14" },
       // TODO vóór livegang verwijderen: houdt de site uit zoekmachines zolang er voorbeeldteksten op staan.
       { name: "robots", content: "noindex, nofollow" },
-      { property: "og:site_name", content: "Anetkruiden" },
-      { property: "og:title", content: "Anetkruiden" },
-      { property: "og:description", content: "Anetkruiden: kruiden uit de natuur." },
+      { property: "og:site_name", content: "ANET" },
+      { property: "og:title", content: "ANET" },
+      {
+        property: "og:description",
+        content: "ANET: kruidenthee en DIY-pakketten uit een kruidentuin in het Naardermeer.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

@@ -3,9 +3,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/site/PageShell";
 import { site } from "@/content/site";
 import { useTr } from "@/lib/i18n";
+import { Brand } from "@/components/site/Brand";
 
 export const Route = createFileRoute("/algemene-voorwaarden")({
-  head: () => ({ meta: [{ title: "Algemene voorwaarden | Anetkruiden" }] }),
+  head: () => ({ meta: [{ title: "Algemene voorwaarden | ANET" }] }),
   component: Terms,
 });
 
@@ -14,8 +15,8 @@ function Terms() {
   return (
     <PageShell title={tr({ nl: "Algemene voorwaarden", en: "Terms and conditions" })} draft>
       <p>
-        Deze voorwaarden zijn van toepassing op alle aanbiedingen en bestellingen van {site.name},
-        KvK {site.kvk}, gevestigd te {site.address}.
+        Deze voorwaarden zijn van toepassing op alle aanbiedingen en bestellingen van <Brand />, KvK{" "}
+        {site.kvk}, gevestigd te {site.address}.
       </p>
       <h2>1. Aanbod en prijzen</h2>
       <p>

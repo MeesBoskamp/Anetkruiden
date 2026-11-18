@@ -7,8 +7,8 @@ import { useTr } from "@/lib/i18n";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact | Anetkruiden" },
-      { name: "description", content: "Neem contact op met Anetkruiden." },
+      { title: "Contact | ANET" },
+      { name: "description", content: "Neem contact op met ANET." },
     ],
   }),
   component: Contact,

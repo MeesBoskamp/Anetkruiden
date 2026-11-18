@@ -5,6 +5,7 @@ import { site } from "@/content/site";
 import { useTr } from "@/lib/i18n";
 
 import { Logo } from "./Logo";
+import { Brand } from "@/components/site/Brand";
 
 export function Footer() {
   const tr = useTr();
@@ -89,7 +90,7 @@ export function Footer() {
       </div>
       <div className="border-t border-white/10">
         <p className="mx-auto max-w-[1600px] px-4 py-5 text-xs text-white/50 sm:px-6">
-          © {year} {site.name}
+          © {year} <Brand />
         </p>
       </div>
     </footer>

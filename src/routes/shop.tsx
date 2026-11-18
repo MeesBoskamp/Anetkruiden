@@ -7,8 +7,8 @@ import { useTr } from "@/lib/i18n";
 export const Route = createFileRoute("/shop")({
   head: () => ({
     meta: [
-      { title: "Shop | Anetkruiden" },
-      { name: "description", content: "Alle producten van Anetkruiden op één plek." },
+      { title: "Shop | ANET" },
+      { name: "description", content: "Alle producten van ANET op één plek." },
     ],
   }),
   component: Shop,

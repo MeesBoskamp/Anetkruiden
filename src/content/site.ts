@@ -5,7 +5,7 @@ import type { Text } from "@/lib/i18n";
  * Waarden tussen [haken] zijn nog in te vullen door de ondernemer.
  */
 export const site = {
-  name: "Anetkruiden",
+  name: "ANET",
   domain: "anetkruiden.nl",
   email: "[e-mailadres]",
   phone: "[telefoonnummer]",

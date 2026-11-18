@@ -3,9 +3,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/site/PageShell";
 import { site } from "@/content/site";
 import { useTr } from "@/lib/i18n";
+import { Brand } from "@/components/site/Brand";
 
 export const Route = createFileRoute("/privacy")({
-  head: () => ({ meta: [{ title: "Privacyverklaring | Anetkruiden" }] }),
+  head: () => ({ meta: [{ title: "Privacyverklaring | ANET" }] }),
   component: Privacy,
 });
 
@@ -14,8 +15,8 @@ function Privacy() {
   return (
     <PageShell title={tr({ nl: "Privacyverklaring", en: "Privacy policy" })} draft>
       <p>
-        {site.name} (KvK {site.kvk}) is verantwoordelijk voor de verwerking van persoonsgegevens
-        zoals beschreven in deze verklaring. Contact: {site.email}.
+        <Brand /> (KvK {site.kvk}) is verantwoordelijk voor de verwerking van persoonsgegevens zoals
+        beschreven in deze verklaring. Contact: {site.email}.
       </p>
       <h2>Welke gegevens ik verwerk</h2>
       <ul>
