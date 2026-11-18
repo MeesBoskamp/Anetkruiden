@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import { ProductCard } from "@/components/site/ProductCard";
-import { products } from "@/content/products";
+import { useCatalog } from "@/lib/catalog";
 import { useTr } from "@/lib/i18n";
 
 export const Route = createFileRoute("/shop")({
@@ -16,6 +16,7 @@ export const Route = createFileRoute("/shop")({
 
 function Shop() {
   const tr = useTr();
+  const products = useCatalog();
   return (
     <div className="mx-auto max-w-[1600px] px-4 pb-8 pt-16 sm:px-6 sm:pt-24">
       <header className="mb-16 text-center">

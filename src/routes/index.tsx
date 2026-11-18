@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { withBrand } from "@/components/site/Brand";
 import { ProductBlock } from "@/components/site/ProductBlock";
-import { products } from "@/content/products";
+import { useCatalog } from "@/lib/catalog";
 import { useTr } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
@@ -27,6 +27,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const tr = useTr();
+  const products = useCatalog();
 
   const reasons = [
     // Afgeleid uit de Over mij-tekst van Annette.

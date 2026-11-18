@@ -11,13 +11,21 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AlgemeneVoorwaardenRouteImport } from './routes/algemene-voorwaarden'
+import { Route as BeheerRouteRouteImport } from './routes/beheer/route'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as OverOnsRouteImport } from './routes/over-ons'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as VerzendingEnRetourRouteImport } from './routes/verzending-en-retour'
+import { Route as BeheerIndexRouteImport } from './routes/beheer/index'
+import { Route as BeheerVoorraadRouteImport } from './routes/beheer/voorraad'
+import { Route as BeheerWachtwoordRouteImport } from './routes/beheer/wachtwoord'
 import { Route as ProductenSlugRouteImport } from './routes/producten/$slug'
+import { Route as BeheerBestellingenIndexRouteImport } from './routes/beheer/bestellingen/index'
+import { Route as BeheerBestellingenIdRouteImport } from './routes/beheer/bestellingen/$id'
+import { Route as BeheerProductenIndexRouteImport } from './routes/beheer/producten/index'
+import { Route as BeheerProductenIdRouteImport } from './routes/beheer/producten/$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -27,6 +35,11 @@ const IndexRoute = IndexRouteImport.update({
 const AlgemeneVoorwaardenRoute = AlgemeneVoorwaardenRouteImport.update({
   id: '/algemene-voorwaarden',
   path: '/algemene-voorwaarden',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BeheerRouteRoute = BeheerRouteRouteImport.update({
+  id: '/beheer',
+  path: '/beheer',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -59,14 +72,50 @@ const VerzendingEnRetourRoute = VerzendingEnRetourRouteImport.update({
   path: '/verzending-en-retour',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BeheerIndexRoute = BeheerIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => BeheerRouteRoute,
+} as any)
+const BeheerVoorraadRoute = BeheerVoorraadRouteImport.update({
+  id: '/voorraad',
+  path: '/voorraad',
+  getParentRoute: () => BeheerRouteRoute,
+} as any)
+const BeheerWachtwoordRoute = BeheerWachtwoordRouteImport.update({
+  id: '/wachtwoord',
+  path: '/wachtwoord',
+  getParentRoute: () => BeheerRouteRoute,
+} as any)
 const ProductenSlugRoute = ProductenSlugRouteImport.update({
   id: '/producten/$slug',
   path: '/producten/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BeheerBestellingenIndexRoute = BeheerBestellingenIndexRouteImport.update({
+  id: '/bestellingen/',
+  path: '/bestellingen/',
+  getParentRoute: () => BeheerRouteRoute,
+} as any)
+const BeheerBestellingenIdRoute = BeheerBestellingenIdRouteImport.update({
+  id: '/bestellingen/$id',
+  path: '/bestellingen/$id',
+  getParentRoute: () => BeheerRouteRoute,
+} as any)
+const BeheerProductenIndexRoute = BeheerProductenIndexRouteImport.update({
+  id: '/producten/',
+  path: '/producten/',
+  getParentRoute: () => BeheerRouteRoute,
+} as any)
+const BeheerProductenIdRoute = BeheerProductenIdRouteImport.update({
+  id: '/producten/$id',
+  path: '/producten/$id',
+  getParentRoute: () => BeheerRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/beheer': typeof BeheerRouteRouteWithChildren
   '/algemene-voorwaarden': typeof AlgemeneVoorwaardenRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
@@ -74,7 +123,14 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/shop': typeof ShopRoute
   '/verzending-en-retour': typeof VerzendingEnRetourRoute
+  '/beheer/voorraad': typeof BeheerVoorraadRoute
+  '/beheer/wachtwoord': typeof BeheerWachtwoordRoute
   '/producten/$slug': typeof ProductenSlugRoute
+  '/beheer/': typeof BeheerIndexRoute
+  '/beheer/bestellingen/$id': typeof BeheerBestellingenIdRoute
+  '/beheer/producten/$id': typeof BeheerProductenIdRoute
+  '/beheer/bestellingen/': typeof BeheerBestellingenIndexRoute
+  '/beheer/producten/': typeof BeheerProductenIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -85,11 +141,19 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/shop': typeof ShopRoute
   '/verzending-en-retour': typeof VerzendingEnRetourRoute
+  '/beheer/voorraad': typeof BeheerVoorraadRoute
+  '/beheer/wachtwoord': typeof BeheerWachtwoordRoute
   '/producten/$slug': typeof ProductenSlugRoute
+  '/beheer': typeof BeheerIndexRoute
+  '/beheer/bestellingen/$id': typeof BeheerBestellingenIdRoute
+  '/beheer/producten/$id': typeof BeheerProductenIdRoute
+  '/beheer/bestellingen': typeof BeheerBestellingenIndexRoute
+  '/beheer/producten': typeof BeheerProductenIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/beheer': typeof BeheerRouteRouteWithChildren
   '/algemene-voorwaarden': typeof AlgemeneVoorwaardenRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
@@ -97,12 +161,20 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/shop': typeof ShopRoute
   '/verzending-en-retour': typeof VerzendingEnRetourRoute
+  '/beheer/voorraad': typeof BeheerVoorraadRoute
+  '/beheer/wachtwoord': typeof BeheerWachtwoordRoute
   '/producten/$slug': typeof ProductenSlugRoute
+  '/beheer/': typeof BeheerIndexRoute
+  '/beheer/bestellingen/$id': typeof BeheerBestellingenIdRoute
+  '/beheer/producten/$id': typeof BeheerProductenIdRoute
+  '/beheer/bestellingen/': typeof BeheerBestellingenIndexRoute
+  '/beheer/producten/': typeof BeheerProductenIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/beheer'
     | '/algemene-voorwaarden'
     | '/contact'
     | '/faq'
@@ -110,7 +182,14 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/shop'
     | '/verzending-en-retour'
+    | '/beheer/voorraad'
+    | '/beheer/wachtwoord'
     | '/producten/$slug'
+    | '/beheer/'
+    | '/beheer/bestellingen/$id'
+    | '/beheer/producten/$id'
+    | '/beheer/bestellingen/'
+    | '/beheer/producten/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -121,10 +200,18 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/shop'
     | '/verzending-en-retour'
+    | '/beheer/voorraad'
+    | '/beheer/wachtwoord'
     | '/producten/$slug'
+    | '/beheer'
+    | '/beheer/bestellingen/$id'
+    | '/beheer/producten/$id'
+    | '/beheer/bestellingen'
+    | '/beheer/producten'
   id:
     | '__root__'
     | '/'
+    | '/beheer'
     | '/algemene-voorwaarden'
     | '/contact'
     | '/faq'
@@ -132,11 +219,19 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/shop'
     | '/verzending-en-retour'
+    | '/beheer/voorraad'
+    | '/beheer/wachtwoord'
     | '/producten/$slug'
+    | '/beheer/'
+    | '/beheer/bestellingen/$id'
+    | '/beheer/producten/$id'
+    | '/beheer/bestellingen/'
+    | '/beheer/producten/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BeheerRouteRoute: typeof BeheerRouteRouteWithChildren
   AlgemeneVoorwaardenRoute: typeof AlgemeneVoorwaardenRoute
   ContactRoute: typeof ContactRoute
   FaqRoute: typeof FaqRoute
@@ -161,6 +256,13 @@ declare module '@tanstack/react-router' {
       path: '/algemene-voorwaarden'
       fullPath: '/algemene-voorwaarden'
       preLoaderRoute: typeof AlgemeneVoorwaardenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/beheer': {
+      id: '/beheer'
+      path: '/beheer'
+      fullPath: '/beheer'
+      preLoaderRoute: typeof BeheerRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -205,6 +307,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VerzendingEnRetourRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/beheer/': {
+      id: '/beheer/'
+      path: '/'
+      fullPath: '/beheer/'
+      preLoaderRoute: typeof BeheerIndexRouteImport
+      parentRoute: typeof BeheerRouteRoute
+    }
+    '/beheer/voorraad': {
+      id: '/beheer/voorraad'
+      path: '/voorraad'
+      fullPath: '/beheer/voorraad'
+      preLoaderRoute: typeof BeheerVoorraadRouteImport
+      parentRoute: typeof BeheerRouteRoute
+    }
+    '/beheer/wachtwoord': {
+      id: '/beheer/wachtwoord'
+      path: '/wachtwoord'
+      fullPath: '/beheer/wachtwoord'
+      preLoaderRoute: typeof BeheerWachtwoordRouteImport
+      parentRoute: typeof BeheerRouteRoute
+    }
     '/producten/$slug': {
       id: '/producten/$slug'
       path: '/producten/$slug'
@@ -212,11 +335,64 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductenSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/beheer/bestellingen/': {
+      id: '/beheer/bestellingen/'
+      path: '/bestellingen'
+      fullPath: '/beheer/bestellingen/'
+      preLoaderRoute: typeof BeheerBestellingenIndexRouteImport
+      parentRoute: typeof BeheerRouteRoute
+    }
+    '/beheer/bestellingen/$id': {
+      id: '/beheer/bestellingen/$id'
+      path: '/bestellingen/$id'
+      fullPath: '/beheer/bestellingen/$id'
+      preLoaderRoute: typeof BeheerBestellingenIdRouteImport
+      parentRoute: typeof BeheerRouteRoute
+    }
+    '/beheer/producten/': {
+      id: '/beheer/producten/'
+      path: '/producten'
+      fullPath: '/beheer/producten/'
+      preLoaderRoute: typeof BeheerProductenIndexRouteImport
+      parentRoute: typeof BeheerRouteRoute
+    }
+    '/beheer/producten/$id': {
+      id: '/beheer/producten/$id'
+      path: '/producten/$id'
+      fullPath: '/beheer/producten/$id'
+      preLoaderRoute: typeof BeheerProductenIdRouteImport
+      parentRoute: typeof BeheerRouteRoute
+    }
   }
 }
 
+interface BeheerRouteRouteChildren {
+  BeheerVoorraadRoute: typeof BeheerVoorraadRoute
+  BeheerWachtwoordRoute: typeof BeheerWachtwoordRoute
+  BeheerIndexRoute: typeof BeheerIndexRoute
+  BeheerBestellingenIdRoute: typeof BeheerBestellingenIdRoute
+  BeheerProductenIdRoute: typeof BeheerProductenIdRoute
+  BeheerBestellingenIndexRoute: typeof BeheerBestellingenIndexRoute
+  BeheerProductenIndexRoute: typeof BeheerProductenIndexRoute
+}
+
+const BeheerRouteRouteChildren: BeheerRouteRouteChildren = {
+  BeheerVoorraadRoute: BeheerVoorraadRoute,
+  BeheerWachtwoordRoute: BeheerWachtwoordRoute,
+  BeheerIndexRoute: BeheerIndexRoute,
+  BeheerBestellingenIdRoute: BeheerBestellingenIdRoute,
+  BeheerProductenIdRoute: BeheerProductenIdRoute,
+  BeheerBestellingenIndexRoute: BeheerBestellingenIndexRoute,
+  BeheerProductenIndexRoute: BeheerProductenIndexRoute,
+}
+
+const BeheerRouteRouteWithChildren = BeheerRouteRoute._addFileChildren(
+  BeheerRouteRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BeheerRouteRoute: BeheerRouteRouteWithChildren,
   AlgemeneVoorwaardenRoute: AlgemeneVoorwaardenRoute,
   ContactRoute: ContactRoute,
   FaqRoute: FaqRoute,

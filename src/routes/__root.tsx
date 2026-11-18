@@ -13,6 +13,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { CartProvider } from "@/lib/cart";
+import { catalogQuery } from "@/lib/catalog";
 import { LanguageProvider } from "@/lib/i18n";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
@@ -74,6 +75,10 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  // De productcatalogus (uit de database) is op elke pagina nodig: menu, winkelmand, footer.
+  loader: async ({ context }) => ({
+    catalog: await context.queryClient.ensureQueryData(catalogQuery),
+  }),
   head: () => ({
     meta: [
       { charSet: "utf-8" },

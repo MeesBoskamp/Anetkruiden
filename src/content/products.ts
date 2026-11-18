@@ -1,6 +1,9 @@
 import type { Text } from "@/lib/i18n";
 
 /**
+ * RESERVELIJST. De producten staan in de database en worden beheerd via /beheer.
+ * Deze lijst wordt alleen gebruikt als de database (nog) niet bereikbaar is.
+ *
  * VOORBEELDPRODUCTEN: namen, prijzen en teksten zijn tijdelijk en moeten door de
  * ondernemer worden vervangen. In fase 3 verhuizen deze gegevens naar de database
  * (tabellen products / product_variants, zie PLAN.md); de vorm hieronder volgt dat model.
@@ -8,30 +11,41 @@ import type { Text } from "@/lib/i18n";
  * Let op: geen gezondheidsclaims in productteksten.
  */
 export type Product = {
+  /** Database-id; ontbreekt bij de ingebouwde reservelijst. */
+  id?: string | undefined;
   slug: string;
   name: Text;
-  tagline: Text;
+  tagline?: Text | undefined;
   short: Text;
   priceCents: number;
-  size: string;
+  /** Optionele "van"-prijs (doorgestreept getoond). */
+  compareAtCents?: number | undefined;
+  size?: string | undefined;
+  /** Voorraad. Ontbreekt bij de reservelijst; 0 = uitverkocht. */
+  stock?: number | undefined;
+  /** Optioneel label, bijvoorbeeld "Nieuw". */
+  badge?: string | undefined;
   /** Kleuren voor de tijdelijke illustratie, tot er echte foto's zijn. */
   art: { bg: string; fg: string; variant: "leaf" | "leaves" | "sprig" | "grain" | "drop" };
   /** Echte productfoto's (eerste is de hoofdfoto). Zonder foto's wordt de illustratie getoond. */
-  images?: { src: string; alt: Text }[];
+  images?: { src: string; alt: Text }[] | undefined;
   placeholder: boolean;
   facts: { label: Text; value: Text }[];
   story: Text[];
   /** Optioneel: wat er in het pakket zit, als lijst met hoeveelheden. */
-  contents?: { amount: string; item: Text }[];
+  contents?: { amount: string; item: Text }[] | undefined;
   /** Optioneel: achtergrond over het hoofdingrediënt. Geen medische claims. */
-  about?: { title: Text; body: Text[] };
-  ingredients: Text;
-  origin: Text;
-  allergens: Text;
-  storage: Text;
+  about?: { title: Text; body: Text[] } | undefined;
+  ingredients?: Text | undefined;
+  origin?: Text | undefined;
+  allergens?: Text | undefined;
+  storage?: Text | undefined;
+  packaging?: Text | undefined;
   usage: { title: Text; body: Text }[];
-  tip: Text;
+  tip?: Text | undefined;
   faq: { q: Text; a: Text }[];
+  seoTitle?: string | undefined;
+  seoDescription?: string | undefined;
 };
 
 const TODO: Text = { nl: "[nog invullen]", en: "[to be filled in]" };

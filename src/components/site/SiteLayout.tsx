@@ -1,3 +1,4 @@
+import { useRouterState } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 
 import { AnnouncementBar } from "./AnnouncementBar";
@@ -6,6 +7,13 @@ import { Footer } from "./Footer";
 import { Header } from "./Header";
 
 export function SiteLayout({ children }: { children: ReactNode }) {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+
+  // Het beheerportaal heeft een eigen kop en geen winkelonderdelen.
+  if (pathname === "/beheer" || pathname.startsWith("/beheer/")) {
+    return <main id="inhoud">{children}</main>;
+  }
+
   return (
     <>
       <a

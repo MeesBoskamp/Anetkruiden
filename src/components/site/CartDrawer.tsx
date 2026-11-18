@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Minus, Plus, X } from "lucide-react";
 
 import { Sheet, SheetContent, SheetDescription, SheetTitle } from "@/components/ui/sheet";
-import { getProduct } from "@/content/products";
+import { findProduct, maxOrderable, useCatalog } from "@/lib/catalog";
 import { useCart } from "@/lib/cart";
 import { formatPrice } from "@/lib/format";
 import { useTr } from "@/lib/i18n";
@@ -12,6 +12,7 @@ import { ProductMedia } from "./ProductMedia";
 export function CartDrawer() {
   const tr = useTr();
   const { items, count, subtotalCents, open, setOpen, setQty, remove } = useCart();
+  const catalog = useCatalog();
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -41,7 +42,7 @@ export function CartDrawer() {
           <>
             <ul className="flex-1 divide-y divide-border overflow-y-auto px-6">
               {items.map((item) => {
-                const product = getProduct(item.slug);
+                const product = findProduct(catalog, item.slug);
                 if (!product) return null;
                 const name = tr(product.name);
                 return (
@@ -66,7 +67,9 @@ export function CartDrawer() {
                           <X className="size-4" />
                         </button>
                       </div>
-                      <p className="text-sm text-muted-foreground">{product.size}</p>
+                      {product.size && (
+                        <p className="text-sm text-muted-foreground">{product.size}</p>
+                      )}
                       <div className="mt-auto flex items-center justify-between pt-3">
                         <div className="flex items-center border border-ink">
                           <button
@@ -83,8 +86,9 @@ export function CartDrawer() {
                           <button
                             type="button"
                             onClick={() => setQty(item.slug, item.qty + 1)}
+                            disabled={item.qty >= maxOrderable(product)}
                             aria-label={tr({ nl: "Meer", en: "More" })}
-                            className="p-2"
+                            className="p-2 disabled:opacity-30"
                           >
                             <Plus className="size-3.5" />
                           </button>

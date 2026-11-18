@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 
-import { products } from "@/content/products";
+import { useCatalog } from "@/lib/catalog";
 import { site } from "@/content/site";
 import { useTr } from "@/lib/i18n";
 
@@ -9,6 +9,7 @@ import { Brand } from "@/components/site/Brand";
 
 export function Footer() {
   const tr = useTr();
+  const products = useCatalog();
   const year = new Date().getFullYear();
 
   const info = [
@@ -89,9 +90,14 @@ export function Footer() {
         </nav>
       </div>
       <div className="border-t border-white/10">
-        <p className="mx-auto max-w-[1600px] px-4 py-5 text-xs text-white/50 sm:px-6">
-          © {year} <Brand />
-        </p>
+        <div className="mx-auto flex max-w-[1600px] items-center justify-between px-4 py-5 text-xs text-white/50 sm:px-6">
+          <p>
+            © {year} <Brand />
+          </p>
+          <Link to="/beheer" className="hover:text-white">
+            {tr({ nl: "Inloggen beheer", en: "Admin login" })}
+          </Link>
+        </div>
       </div>
     </footer>
   );
