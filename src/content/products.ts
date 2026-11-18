@@ -167,38 +167,71 @@ export const products: Product[] = [
     faq: commonFaq,
   },
   {
-    slug: "gedroogd-brandnetelblad",
-    name: { nl: "Gedroogd brandnetelblad", en: "Dried nettle leaf" },
-    tagline: { nl: "Voor in soep, saus en brood.", en: "For soup, sauce and bread." },
-    short: {
-      nl: "Heel of grof gesneden blad als keukenkruid. Voorbeeldtekst.",
-      en: "Whole or coarsely cut leaf as a kitchen herb. Example text.",
+    // Product 2: oregano, 10 g (aangeleverd 18-11 met foto). Prijs en overige gegevens nog bevestigen.
+    slug: "oregano",
+    name: { nl: "Oregano", en: "Oregano" },
+    tagline: {
+      nl: "Gedroogde oregano voor in de keuken.",
+      en: "Dried oregano for the kitchen.",
     },
-    priceCents: 495,
-    size: "30 g",
+    short: {
+      nl: "Gedroogde blaadjes oregano in een papieren zakje met venster. Voor in tomatensaus, op pizza of door een salade.",
+      en: "Dried oregano leaves in a paper bag with a window. For tomato sauce, on pizza or in a salad.",
+    },
+    priceCents: 495, // voorbeeldprijs, nog bevestigen
+    size: "10 g",
     art: { bg: "#000000", fg: "#F0952B", variant: "leaf" },
+    images: [
+      {
+        src: "/images/product-2/oregano-zakje.jpg",
+        alt: {
+          nl: "Een papieren zakje met venster en een hoopje gedroogde oregano op een houten tafel",
+          en: "A paper bag with a window and a pile of dried oregano on a wooden table",
+        },
+      },
+    ],
     placeholder: true,
-    facts: commonFacts("30 g"),
+    facts: [
+      { label: { nl: "Inhoud", en: "Contents" }, value: { nl: "10 g" } },
+      { label: { nl: "Herkomst", en: "Origin" }, value: TODO },
+      {
+        label: { nl: "Verpakking", en: "Packaging" },
+        value: { nl: "Papieren zakje", en: "Paper bag" },
+      },
+    ],
     story: [
       {
-        nl: "Voorbeeldtekst: vertel hier waarom dit kruid in de keuken thuishoort en hoe je het zelf gebruikt.",
+        nl: "[Verhaal nog invullen: waar komt deze oregano vandaan en hoe is hij gedroogd?]",
+        en: "[Story to be filled in: where does this oregano come from and how was it dried?]",
       },
     ],
-    ingredients: { nl: "Brandnetelblad. [Controleren en aanvullen.]" },
+    ingredients: { nl: "Gedroogde oregano.", en: "Dried oregano." },
     origin: TODO,
     allergens: TODO,
-    storage: { nl: "Droog, koel en donker bewaren. [Controleren.]" },
+    storage: {
+      nl: "Koel, droog en donker bewaren.",
+      en: "Store cool, dry and dark.",
+    },
     usage: [
       {
-        title: { nl: "In soep", en: "In soup" },
-        body: { nl: "Voorbeeld: strooi een snufje door de soep. [Invullen.]" },
+        title: { nl: "In de saus", en: "In sauce" },
+        body: {
+          nl: "Voeg een snufje toe aan tomatensaus of soep en laat het even meekoken.",
+          en: "Add a pinch to tomato sauce or soup and let it simmer briefly.",
+        },
       },
       {
-        title: { nl: "In brood", en: "In bread" },
-        body: { nl: "Voorbeeld: meekneden in het deeg. [Invullen.]" },
+        title: { nl: "Op pizza en salade", en: "On pizza and salad" },
+        body: {
+          nl: "Strooi de oregano over pizza, geroosterde groenten of een salade.",
+          en: "Sprinkle the oregano over pizza, roasted vegetables or a salad.",
+        },
       },
     ],
-    tip: { nl: "Voorbeeldtip: fijnwrijven voor je het toevoegt." },
+    tip: {
+      nl: "Wrijf de blaadjes even tussen je vingers voor je ze gebruikt, dan komt de geur beter vrij.",
+      en: "Rub the leaves between your fingers before use to release more of the scent.",
+    },
     faq: commonFaq,
   },
   {
