@@ -39,18 +39,10 @@ const TODO: Text = { nl: "[nog invullen]", en: "[to be filled in]" };
 const commonFacts = (size: string): Product["facts"] => [
   { label: { nl: "Inhoud", en: "Contents" }, value: { nl: size } },
   { label: { nl: "Herkomst", en: "Origin" }, value: TODO },
-  { label: { nl: "Houdbaar tot", en: "Best before" }, value: TODO },
   { label: { nl: "Verpakking", en: "Packaging" }, value: TODO },
 ];
 
 const commonFaq: Product["faq"] = [
-  {
-    q: { nl: "Hoe lang is dit product houdbaar?", en: "How long does this product keep?" },
-    a: {
-      nl: "De houdbaarheidsdatum staat op de verpakking. [Richtlijn nog invullen.]",
-      en: "The best-before date is on the packaging. [Guideline to be filled in.]",
-    },
-  },
   {
     q: { nl: "Wanneer wordt mijn bestelling verzonden?", en: "When will my order ship?" },
     a: {
@@ -62,7 +54,7 @@ const commonFaq: Product["faq"] = [
 
 export const products: Product[] = [
   {
-    // Product 1: teksten uit "teksten voor de website DIY pakket" (leidend). Prijs en houdbaarheid nog bevestigen.
+    // Product 1: teksten uit "teksten voor de website DIY pakket" (leidend). Prijs nog bevestigen.
     slug: "calendulazalf-pakketje",
     name: { nl: "Calendulazalf", en: "Calendula salve" },
     tagline: {
@@ -103,7 +95,6 @@ export const products: Product[] = [
         label: { nl: "Herkomst", en: "Origin" },
         value: { nl: "Naardermeer", en: "Naardermeer" },
       },
-      { label: { nl: "Houdbaar tot", en: "Best before" }, value: TODO },
       { label: { nl: "Potje", en: "Jar" }, value: { nl: "106 ml glas", en: "106 ml glass" } },
     ],
     story: [

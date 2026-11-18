@@ -118,7 +118,9 @@ function ProductPage() {
         aria-label={tr({ nl: "Kerngegevens", en: "Key facts" })}
         className="mx-auto mt-20 max-w-[1600px] px-4 sm:px-6"
       >
-        <dl className="grid grid-cols-2 border-y border-ink md:grid-cols-4">
+        <dl
+          className={`grid grid-cols-2 border-y border-ink ${product.facts.length === 3 ? "md:grid-cols-3" : "md:grid-cols-4"}`}
+        >
           {product.facts.map((f, i) => (
             <div key={i} className="border-border p-6 md:border-r md:last:border-r-0">
               <dt className="text-sm text-muted-foreground">{tr(f.label)}</dt>
