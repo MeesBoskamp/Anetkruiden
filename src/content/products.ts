@@ -98,7 +98,7 @@ export const products: Product[] = [
     ],
     placeholder: true,
     facts: [
-      { label: { nl: "Inhoud", en: "Contents" }, value: { nl: "5 onderdelen", en: "5 parts" } },
+      { label: { nl: "Inhoud", en: "Contents" }, value: { nl: "6 onderdelen", en: "6 parts" } },
       {
         label: { nl: "Herkomst", en: "Origin" },
         value: { nl: "Naardermeer", en: "Naardermeer" },
@@ -118,26 +118,28 @@ export const products: Product[] = [
       { amount: "5 g", item: { nl: "gedroogde calendulabloemen", en: "dried calendula flowers" } },
       { amount: "5 g", item: { nl: "calendulazaadjes", en: "calendula seeds" } },
       { amount: "10 g", item: { nl: "bijenwas", en: "beeswax" } },
+      {
+        amount: "1",
+        item: {
+          nl: "recept voor de bereiding van de zalf",
+          en: "recipe for preparing the salve",
+        },
+      },
     ],
     about: {
       title: { nl: "Over calendula", en: "About calendula" },
-      // De brontekst noemt wondgenezing, ontstekingsremming, eczeem, acne en zonnebrand.
-      // Dat zijn medische claims die niet bij een cosmetisch product mogen; hier afgezwakt.
-      // Ondernemer is gevraagd dit te bevestigen.
+      // Tekst aangeleverd door de ondernemer (versie 18-11). Bevat nog uitspraken over
+      // genezing en huidaandoeningen; ondernemer is hierop gewezen en kiest voor deze tekst.
       body: [
         {
-          nl: "De bloemen van de calendula, ook wel goudsbloem, zitten boordevol actieve stoffen. Calendula wordt al eeuwenlang gebruikt in huidverzorging.",
-          en: "The flowers of the calendula, also known as marigold, are full of active compounds. Calendula has been used in skin care for centuries.",
-        },
-        {
-          nl: "Een zalf met calendula verzorgt en verzacht de huid, bijvoorbeeld droge of ruwe plekjes.",
-          en: "A salve with calendula cares for and softens the skin, for example dry or rough patches.",
+          nl: "De bloemen van de calendula zitten boordevol actieve stoffen. Calendulazalf ondersteunt het herstellende vermogen van de huid, waardoor kleine wondjes en schaafplekken sneller en mooier genezen. Daarnaast kalmeert het de huid bij eczeem, luieruitslag, acne en zonnebrand.",
+          en: "The flowers of the calendula are full of active compounds. Calendula salve supports the skin's natural ability to recover, so small cuts and grazes heal faster and more nicely. It also soothes the skin with eczema, nappy rash, acne and sunburn.",
         },
       ],
     },
     ingredients: {
-      nl: "Amandelolie, bijenwas en gedroogde calendulabloemen. Daarnaast calendulazaadjes om zelf te zaaien en een glazen potje.",
-      en: "Almond oil, beeswax and dried calendula flowers. Plus calendula seeds to sow yourself and a glass jar.",
+      nl: "Amandelolie, bijenwas en gedroogde calendulabloemen. Daarnaast calendulazaadjes om zelf te zaaien, een glazen potje en het recept.",
+      en: "Almond oil, beeswax and dried calendula flowers. Plus calendula seeds to sow yourself, a glass jar and the recipe.",
     },
     origin: {
       nl: "Bloemen en zaden uit het Naardermeer.",
@@ -155,8 +157,8 @@ export const products: Product[] = [
       {
         title: { nl: "Zelf toevoegen", en: "What you add yourself" },
         body: {
-          nl: "Een pannetje en warm water. [Volledige benodigdheden en recept nog aanleveren.]",
-          en: "A small pan and warm water. [Full list and recipe to be supplied.]",
+          nl: "Een pannetje en warm water. Het recept zit in het pakketje. [Volledige benodigdheden controleren.]",
+          en: "A small pan and warm water. The recipe is in the kit. [Check the full list.]",
         },
       },
       {
