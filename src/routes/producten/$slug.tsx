@@ -140,6 +140,42 @@ function ProductPage() {
         </div>
       </section>
 
+      {/* 3b. Inhoud van het pakket */}
+      {product.contents && product.contents.length > 0 && (
+        <section className="mx-auto mt-28 grid max-w-[1600px] gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_1.4fr]">
+          <h2 className="display text-5xl sm:text-6xl">
+            {tr({ nl: "Inhoud van het pakket", en: "What's in the kit" })}
+          </h2>
+          <ul className="max-w-2xl border-t border-ink">
+            {product.contents.map((c, i) => (
+              <li
+                key={i}
+                className="grid grid-cols-[6rem_1fr] items-baseline gap-4 border-b border-border py-4 text-lg"
+              >
+                <span className="display text-2xl normal-case text-brand-deep">{c.amount}</span>
+                <span>{tr(c.item)}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {/* 3c. Over het hoofdingrediënt */}
+      {product.about && (
+        <section className="mt-28 bg-ink text-white">
+          <div className="mx-auto grid max-w-[1600px] gap-10 px-4 py-20 sm:px-6 lg:grid-cols-[1fr_1.4fr]">
+            <h2 className="display text-5xl text-calendula sm:text-6xl">
+              {tr(product.about.title)}
+            </h2>
+            <div className="max-w-2xl space-y-5 text-lg">
+              {product.about.body.map((para, i) => (
+                <p key={i}>{tr(para)}</p>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* 4. Ingrediënten en herkomst */}
       <section className="mt-28 bg-cream">
         <div className="mx-auto grid max-w-[1600px] gap-10 px-4 py-20 sm:px-6 lg:grid-cols-[1fr_1.4fr]">

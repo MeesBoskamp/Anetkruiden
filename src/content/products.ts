@@ -21,6 +21,10 @@ export type Product = {
   placeholder: boolean;
   facts: { label: Text; value: Text }[];
   story: Text[];
+  /** Optioneel: wat er in het pakket zit, als lijst met hoeveelheden. */
+  contents?: { amount: string; item: Text }[];
+  /** Optioneel: achtergrond over het hoofdingrediënt. Geen medische claims. */
+  about?: { title: Text; body: Text[] };
   ingredients: Text;
   origin: Text;
   allergens: Text;
@@ -58,7 +62,7 @@ const commonFaq: Product["faq"] = [
 
 export const products: Product[] = [
   {
-    // Product 1: echte gegevens uit het etiket en de flyer. Prijs en houdbaarheid nog bevestigen.
+    // Product 1: teksten uit "teksten voor de website DIY pakket" (leidend). Prijs en houdbaarheid nog bevestigen.
     slug: "calendulazalf-pakketje",
     name: { nl: "Calendulazalf", en: "Calendula salve" },
     tagline: {
@@ -66,8 +70,8 @@ export const products: Product[] = [
       en: "Make your own salve, with flowers from the Naardermeer.",
     },
     short: {
-      nl: "Een Do It Yourself-pakketje met alles om zelf calendulazalf te maken: amandelolie, bijenwas, gedroogde calendulabloemen en een glazen potje.",
-      en: "A Do It Yourself kit with everything to make your own calendula salve: almond oil, beeswax, dried calendula flowers and a glass jar.",
+      nl: "Met dit Do It Yourself-pakketje maak je je eigen calendulazalf. En met de bijgeleverde zaadjes kun je komend voorjaar je eigen goudsbloemen kweken.",
+      en: "With this Do It Yourself kit you make your own calendula salve. And with the seeds included you can grow your own marigolds next spring.",
     },
     priceCents: 1495, // voorbeeldprijs, nog bevestigen
     size: "Do It Yourself pakketje",
@@ -94,33 +98,55 @@ export const products: Product[] = [
     ],
     placeholder: true,
     facts: [
-      { label: { nl: "Inhoud", en: "Contents" }, value: { nl: "6 onderdelen", en: "6 parts" } },
+      { label: { nl: "Inhoud", en: "Contents" }, value: { nl: "5 onderdelen", en: "5 parts" } },
       {
         label: { nl: "Herkomst", en: "Origin" },
         value: { nl: "Naardermeer", en: "Naardermeer" },
       },
       { label: { nl: "Houdbaar tot", en: "Best before" }, value: TODO },
-      { label: { nl: "Potje", en: "Jar" }, value: { nl: "60 ml glas", en: "60 ml glass" } },
+      { label: { nl: "Potje", en: "Jar" }, value: { nl: "106 ml glas", en: "106 ml glass" } },
     ],
     story: [
       {
-        nl: "Afgelopen zomer bloeiden de goudsbloemen volop in de kruidentuin bij de gemeenschapstuin van Oogst vol Liefde in het Naardermeer. De bloemen zijn met zorg gekweekt, geoogst en gedroogd. Ook de zaadjes in dit pakketje komen van deze bloemen.",
-        en: "Last summer the marigolds bloomed abundantly in the herb garden at the Oogst vol Liefde community garden in the Naardermeer. The flowers were carefully grown, harvested and dried. The seeds in this kit come from these flowers too.",
-      },
-      {
-        nl: "Met dit Do It Yourself-pakketje maak je je eigen calendulazalf. En met de bijgeleverde zaadjes kun je komend voorjaar je eigen goudsbloemen kweken.",
-        en: "With this Do It Yourself kit you make your own calendula salve. And with the seeds included you can grow your own marigolds next spring.",
+        nl: "Afgelopen zomer bloeiden de goudsbloemen volop in de kruidentuin in het Naardermeer. De bloemen zijn met zorg gekweekt, geoogst en gedroogd. Ook de zaadjes in dit pakketje komen van deze bloemen.",
+        en: "Last summer the marigolds bloomed abundantly in the herb garden in the Naardermeer. The flowers were carefully grown, harvested and dried. The seeds in this kit come from these flowers too.",
       },
     ],
+    contents: [
+      { amount: "100 ml", item: { nl: "amandelolie", en: "almond oil" } },
+      { amount: "106 ml", item: { nl: "glazen potje", en: "glass jar" } },
+      { amount: "5 g", item: { nl: "gedroogde calendulabloemen", en: "dried calendula flowers" } },
+      { amount: "5 g", item: { nl: "calendulazaadjes", en: "calendula seeds" } },
+      { amount: "10 g", item: { nl: "bijenwas", en: "beeswax" } },
+    ],
+    about: {
+      title: { nl: "Over calendula", en: "About calendula" },
+      // De brontekst noemt wondgenezing, ontstekingsremming, eczeem, acne en zonnebrand.
+      // Dat zijn medische claims die niet bij een cosmetisch product mogen; hier afgezwakt.
+      // Ondernemer is gevraagd dit te bevestigen.
+      body: [
+        {
+          nl: "De bloemen van de calendula, ook wel goudsbloem, zitten boordevol actieve stoffen. Calendula wordt al eeuwenlang gebruikt in huidverzorging.",
+          en: "The flowers of the calendula, also known as marigold, are full of active compounds. Calendula has been used in skin care for centuries.",
+        },
+        {
+          nl: "Een zalf met calendula verzorgt en verzacht de huid, bijvoorbeeld droge of ruwe plekjes.",
+          en: "A salve with calendula cares for and softens the skin, for example dry or rough patches.",
+        },
+      ],
+    },
     ingredients: {
-      nl: "60 ml amandelolie, 10 g bijenwas, 10 g gedroogde calendulabloemen, 10 g calendulazaadjes, glazen zalfpotje 60 ml en een recept. [Volledige ingrediëntenlijst controleren.]",
-      en: "60 ml almond oil, 10 g beeswax, 10 g dried calendula flowers, 10 g calendula seeds, 60 ml glass jar and a recipe. [Check the full ingredient list.]",
+      nl: "Amandelolie, bijenwas en gedroogde calendulabloemen. Daarnaast calendulazaadjes om zelf te zaaien en een glazen potje.",
+      en: "Almond oil, beeswax and dried calendula flowers. Plus calendula seeds to sow yourself and a glass jar.",
     },
     origin: {
       nl: "Bloemen en zaden uit het Naardermeer.",
       en: "Flowers and seeds from the Naardermeer.",
     },
-    allergens: { nl: "[nog invullen, o.a. amandel]", en: "[to be filled in, incl. almond]" },
+    allergens: {
+      nl: "Bevat amandel (noten). Bevat bijenwas, dus niet vegan. [Controleren.]",
+      en: "Contains almond (nuts). Contains beeswax, so not vegan. [To be checked.]",
+    },
     storage: {
       nl: "Koel, droog en donker bewaren. Buiten bereik van kinderen houden.",
       en: "Store cool, dry and dark. Keep out of reach of children.",
@@ -129,8 +155,8 @@ export const products: Product[] = [
       {
         title: { nl: "Zelf toevoegen", en: "What you add yourself" },
         body: {
-          nl: "Een glazen pot, een pannetje en warm water. Het recept zit in het pakketje.",
-          en: "A glass jar, a small pan and warm water. The recipe is in the kit.",
+          nl: "Een pannetje en warm water. [Volledige benodigdheden en recept nog aanleveren.]",
+          en: "A small pan and warm water. [Full list and recipe to be supplied.]",
         },
       },
       {
