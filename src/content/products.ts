@@ -252,6 +252,74 @@ export const products: Product[] = [
     faq: commonFaq,
   },
   {
+    // Product 3: kamille, 10 g, opgezet als de oregano (19-11), met de kraftzak-animatie.
+    // Prijs en voorraad nog bevestigen; foto is een weergave van de zak tot er een echte foto is.
+    slug: "kamille",
+    name: { nl: "Kamille", en: "Chamomile" },
+    tagline: {
+      nl: "Gedroogde kamillebloemen voor een kopje thee.",
+      en: "Dried chamomile flowers for a cup of tea.",
+    },
+    short: {
+      nl: "Hele, gedroogde kamillebloemen in een papieren zakje met venster. Voor een heerlijk kopje kruidenthee.",
+      en: "Whole dried chamomile flowers in a paper bag with a window. For a lovely cup of herbal tea.",
+    },
+    priceCents: 495, // voorbeeldprijs, nog bevestigen
+    size: "10 g",
+    art: { bg: "#F7F1E8", fg: "#8A5A2B", variant: "sprig" },
+    images: [
+      {
+        src: "/images/product-kamille/kamille-zakje.jpg",
+        alt: {
+          nl: "Een kraftpapieren zakje met venster, gevuld met gedroogde kamillebloemen",
+          en: "A kraft paper bag with a window, filled with dried chamomile flowers",
+        },
+      },
+    ],
+    animation: { kind: "kamille", labels: [] },
+    placeholder: true,
+    facts: [
+      { label: { nl: "Inhoud", en: "Contents" }, value: { nl: "10 g" } },
+      {
+        label: { nl: "Verpakking", en: "Packaging" },
+        value: { nl: "Papieren zakje", en: "Paper bag" },
+      },
+    ],
+    story: [
+      {
+        nl: "Kamille was een van de eerste kruiden die ik in mijn kruidentuin in het Naardermeer kon oogsten. Thuis droogde ik de bloemen, en zo ontdekte ik hoe leuk het is om van je eigen oogst iets te maken.",
+        en: "Chamomile was one of the first herbs I could harvest in my herb garden in the Naardermeer. At home I dried the flowers, and that is how I discovered how much fun it is to make something from your own harvest.",
+      },
+    ],
+    ingredients: { nl: "Gedroogde kamillebloemen.", en: "Dried chamomile flowers." },
+    storage: {
+      nl: "Koel, droog en donker bewaren.",
+      en: "Store cool, dry and dark.",
+    },
+    packaging: { nl: "Papieren zakje", en: "Paper bag" },
+    usage: [
+      {
+        title: { nl: "Thee zetten", en: "Making tea" },
+        body: {
+          nl: "Doe een theelepel bloemen in een theezeefje, giet er heet water op en laat het ongeveer 5 minuten trekken.",
+          en: "Put a teaspoon of flowers in a tea strainer, pour hot water over them and let it steep for about 5 minutes.",
+        },
+      },
+      {
+        title: { nl: "Met iets erbij", en: "With something extra" },
+        body: {
+          nl: "Lekker met een schijfje citroen of een beetje honing.",
+          en: "Lovely with a slice of lemon or a little honey.",
+        },
+      },
+    ],
+    tip: {
+      nl: "Dek je kopje af terwijl de thee trekt, dan blijft de geur beter in de thee.",
+      en: "Cover your cup while the tea steeps, so more of the scent stays in the tea.",
+    },
+    faq: commonFaq,
+  },
+  {
     slug: "brandnetelpoeder",
     name: { nl: "Brandnetelpoeder", en: "Nettle powder" },
     tagline: { nl: "Fijn gemalen, makkelijk te doseren.", en: "Finely ground, easy to measure." },
