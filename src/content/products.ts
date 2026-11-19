@@ -269,10 +269,38 @@ export const products: Product[] = [
     art: { bg: "#F7F1E8", fg: "#8A5A2B", variant: "sprig" },
     images: [
       {
-        src: "/images/product-kamille/kamille-zakje.jpg",
+        src: "/images/product-kamille/kamille-voorkant.jpg",
         alt: {
-          nl: "Een kraftpapieren zakje met venster, gevuld met gedroogde kamillebloemen",
-          en: "A kraft paper bag with a window, filled with dried chamomile flowers",
+          nl: "Kraftpapieren zakje met venster vol gedroogde kamillebloemen, van voren",
+          en: "Kraft paper bag with a window full of dried chamomile flowers, front view",
+        },
+      },
+      {
+        src: "/images/product-kamille/kamille-met-pot.jpg",
+        alt: {
+          nl: "Het zakje kamille naast een glazen pot met gedroogde kamille",
+          en: "The chamomile bag next to a glass jar of dried chamomile",
+        },
+      },
+      {
+        src: "/images/product-kamille/kamille-achterkant.jpg",
+        alt: {
+          nl: "Achterkant van het kraftpapieren zakje",
+          en: "Back of the kraft paper bag",
+        },
+      },
+      {
+        src: "/images/product-kamille/kamille-zijkant.jpg",
+        alt: {
+          nl: "Zijaanzicht van het zakje met losse kamillebloemen op tafel",
+          en: "Side view of the bag with loose chamomile flowers on the table",
+        },
+      },
+      {
+        src: "/images/product-kamille/kamille-zijkant-venster.jpg",
+        alt: {
+          nl: "Het zakje schuin van opzij, met het venster zichtbaar",
+          en: "The bag from an angle, with the window visible",
         },
       },
     ],

@@ -14,7 +14,7 @@ insert into public.anet_products (
   'Hele, gedroogde kamillebloemen in een papieren zakje met venster. Voor een heerlijk kopje kruidenthee.',
   495,
   10,
-  '[{"url": "/images/product-kamille/kamille-zakje.jpg", "alt": "Een kraftpapieren zakje met venster, gevuld met gedroogde kamillebloemen"}]'::jsonb,
+  '[{"url": "/images/product-kamille/kamille-voorkant.jpg", "alt": "Kraftpapieren zakje met venster vol gedroogde kamillebloemen, van voren"}, {"url": "/images/product-kamille/kamille-met-pot.jpg", "alt": "Het zakje kamille naast een glazen pot met gedroogde kamille"}, {"url": "/images/product-kamille/kamille-achterkant.jpg", "alt": "Achterkant van het kraftpapieren zakje"}, {"url": "/images/product-kamille/kamille-zijkant.jpg", "alt": "Zijaanzicht van het zakje met losse kamillebloemen op tafel"}, {"url": "/images/product-kamille/kamille-zijkant-venster.jpg", "alt": "Het zakje schuin van opzij, met het venster zichtbaar"}]'::jsonb,
   3,
   true,
   true,

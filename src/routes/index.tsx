@@ -118,11 +118,22 @@ function Index() {
 
       {/* Verhaal */}
       <section className="bg-brand-deep text-white">
-        <div className="mx-auto grid max-w-[1600px] gap-8 px-4 py-20 sm:px-6 md:grid-cols-2 md:items-center">
-          <h2 className="display text-5xl sm:text-7xl">
-            {tr({ nl: "Hoe het begon", en: "How it started" })}
-          </h2>
+        <div className="mx-auto grid max-w-[1600px] gap-10 px-4 py-20 sm:px-6 md:grid-cols-2 md:items-center md:gap-16">
+          <img
+            src="/images/sfeer/brandnetel-en-kamille.jpg"
+            alt={tr({
+              nl: "Een zakje kruidenthee tussen glazen potten met gedroogde brandnetel en kamille",
+              en: "A bag of herbal tea between glass jars of dried nettle and chamomile",
+            })}
+            width={1200}
+            height={1600}
+            loading="lazy"
+            className="aspect-[4/5] w-full object-cover md:order-2"
+          />
           <div>
+            <h2 className="display mb-8 text-5xl sm:text-7xl">
+              {tr({ nl: "Hoe het begon", en: "How it started" })}
+            </h2>
             <p className="text-lg text-white">
               {withBrand(
                 tr({
