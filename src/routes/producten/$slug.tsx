@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 
 import { AddToCart } from "@/components/site/AddToCart";
+import { BagAnimation } from "@/components/site/BagAnimation";
 import { ProductCard } from "@/components/site/ProductCard";
 import { ProductMedia } from "@/components/site/ProductMedia";
 import {
@@ -92,21 +93,43 @@ function ProductPage() {
     <article className="pb-24 lg:pb-0">
       {/* 1. Hero */}
       <section className="mx-auto grid max-w-[1600px] gap-10 px-4 pt-8 sm:px-6 lg:grid-cols-2 lg:gap-20 lg:pt-14">
-        <div className="lg:sticky lg:top-24 lg:self-start">
-          <div className="aspect-square bg-cream">
-            <ProductMedia product={product} />
+        {product.animation ? (
+          // Met animatie: de zak bovenaan, alle productfoto's eronder.
+          <div>
+            <BagAnimation
+              kind={product.animation.kind}
+              labels={product.animation.labels}
+              className="aspect-[4/5] bg-cream sm:aspect-square"
+            />
+            {product.images && product.images.length > 0 && (
+              <div className={`mt-3 grid gap-3 ${product.images.length > 1 ? "grid-cols-2" : ""}`}>
+                {product.images.map((_, i) => (
+                  <div key={i} className="aspect-square bg-cream">
+                    <ProductMedia product={product} image={i} />
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
-          {product.images && product.images.length > 1 && (
-            <div className="mt-3 grid grid-cols-2 gap-3">
-              {product.images.slice(1).map((_, i) => (
-                <div key={i} className="aspect-square bg-cream">
-                  <ProductMedia product={product} image={i + 1} />
-                </div>
-              ))}
+        ) : (
+          <div className="lg:sticky lg:top-24 lg:self-start">
+            <div className="aspect-square bg-cream">
+              <ProductMedia product={product} />
             </div>
-          )}
-        </div>
-        <div className="flex flex-col justify-center gap-6 py-4 lg:py-16">
+            {product.images && product.images.length > 1 && (
+              <div className="mt-3 grid grid-cols-2 gap-3">
+                {product.images.slice(1).map((_, i) => (
+                  <div key={i} className="aspect-square bg-cream">
+                    <ProductMedia product={product} image={i + 1} />
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+        <div
+          className={`flex flex-col justify-center gap-6 py-4 lg:py-16 ${product.animation ? "lg:sticky lg:top-24 lg:self-start" : ""}`}
+        >
           <nav aria-label="Broodkruimels" className="text-sm text-muted-foreground">
             <Link to="/shop" className="hover:underline">
               Shop

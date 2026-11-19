@@ -36,6 +36,10 @@ export type DbProduct = {
   weight_grams: number | null;
   seo_title: string | null;
   seo_description: string | null;
+  /** Productanimatie bovenaan de pagina (null = alleen foto's). */
+  /** Ontbreekt zolang migratie 20261119090000_productanimatie nog niet is uitgevoerd. */
+  animation?: "kamille" | null;
+  animation_labels?: string[];
   created_at: string;
   updated_at: string;
 };
@@ -80,6 +84,12 @@ export function fromDb(row: DbProduct, index = 0): Product {
     images: (row.images ?? [])
       .filter((im) => filled(im?.url))
       .map((im) => ({ src: im.url, alt: { nl: filled(im.alt) ? im.alt : row.name } })),
+    animation: row.animation
+      ? {
+          kind: row.animation,
+          labels: (row.animation_labels ?? []).filter(filled).map((nl) => ({ nl: nl.trim() })),
+        }
+      : undefined,
     placeholder: row.is_example,
     facts: (row.facts ?? [])
       .filter((f) => filled(f?.label) && filled(f?.value))

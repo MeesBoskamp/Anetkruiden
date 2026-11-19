@@ -1,3 +1,4 @@
+import type { BagAnimationKind } from "@/components/site/BagAnimation";
 import type { Text } from "@/lib/i18n";
 
 /**
@@ -29,6 +30,8 @@ export type Product = {
   art: { bg: string; fg: string; variant: "leaf" | "leaves" | "sprig" | "grain" | "drop" };
   /** Echte productfoto's (eerste is de hoofdfoto). Zonder foto's wordt de illustratie getoond. */
   images?: { src: string; alt: Text }[] | undefined;
+  /** Optioneel: animatie bovenaan de productpagina; de foto's staan dan eronder. */
+  animation?: { kind: BagAnimationKind; labels: Text[] } | undefined;
   placeholder: boolean;
   facts: { label: Text; value: Text }[];
   story: Text[];

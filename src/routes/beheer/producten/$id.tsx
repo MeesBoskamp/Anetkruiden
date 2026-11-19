@@ -6,6 +6,7 @@ import { toast } from "sonner";
 
 import { ImageEditor, type ImageItem } from "@/components/admin/ImageEditor";
 import { ListEditor } from "@/components/admin/ListEditor";
+import { DEFAULT_BAG_LABELS } from "@/components/site/BagAnimation";
 import {
   AdminPage,
   adminBtn,
@@ -71,6 +72,10 @@ type Form = {
   weight_grams: string;
   seo_title: string;
   seo_description: string;
+  animation: "" | "kamille";
+  animation_labels: { text: string }[];
+  /** false zolang de animatiekolommen nog niet in de database staan. */
+  animation_column: boolean;
 };
 
 const blank: Form = {
@@ -102,6 +107,9 @@ const blank: Form = {
   weight_grams: "",
   seo_title: "",
   seo_description: "",
+  animation: "",
+  animation_labels: [],
+  animation_column: false,
 };
 
 function toForm(p: DbProduct): Form {
@@ -134,6 +142,9 @@ function toForm(p: DbProduct): Form {
     weight_grams: p.weight_grams ? String(p.weight_grams) : "",
     seo_title: p.seo_title ?? "",
     seo_description: p.seo_description ?? "",
+    animation: p.animation ?? "",
+    animation_labels: (p.animation_labels ?? []).map((text) => ({ text })),
+    animation_column: "animation" in p,
   };
 }
 
@@ -197,6 +208,15 @@ function validate(f: Form): { errors: Errors; input?: Omit<ProductInput, "sort_o
       weight_grams: weight,
       seo_title: opt(f.seo_title),
       seo_description: opt(f.seo_description),
+      // Alleen meesturen als de kolommen bestaan (of als er echt een animatie is gekozen).
+      ...(f.animation_column || f.animation
+        ? {
+            animation: f.animation || null,
+            animation_labels: f.animation
+              ? f.animation_labels.map((l) => l.text.trim()).filter(Boolean)
+              : [],
+          }
+        : {}),
     },
   };
 }
@@ -467,6 +487,47 @@ function ProductEditor({ product }: { product: DbProduct | null }) {
                 {txt("size")}
               </Field>
             </div>
+            <Section
+              title="Animatie bovenaan"
+              hint="Een draaiende kraftzak met venster en de knop “Ingrediënten”. De foto's komen dan onder de animatie."
+            >
+              <div className="grid gap-3">
+                <select
+                  aria-label="Animatie"
+                  value={form.animation}
+                  onChange={(e) => {
+                    const v = e.target.value as Form["animation"];
+                    set("animation", v);
+                    if (v && form.animation_labels.length === 0)
+                      set(
+                        "animation_labels",
+                        DEFAULT_BAG_LABELS[v].map((text) => ({ text })),
+                      );
+                  }}
+                  className={inputClass}
+                >
+                  <option value="">Geen animatie (alleen foto's)</option>
+                  <option value="kamille">Kraftzak met kamille</option>
+                </select>
+                {form.animation && (
+                  <>
+                    <p className="text-xs text-muted-foreground">
+                      Teksten naast de zak na een klik op “Ingrediënten”. De eerste helft staat
+                      links, de rest rechts. Zet **sterretjes** om een woord voor vetgedrukt.
+                      Maximaal 6.
+                    </p>
+                    <ListEditor
+                      value={form.animation_labels}
+                      onChange={(v) => set("animation_labels", v)}
+                      columns={[{ key: "text", label: "Tekst", placeholder: "Hele bloemhoofdjes" }]}
+                      empty={{ text: "" }}
+                      addLabel="Tekst toevoegen"
+                      max={6}
+                    />
+                  </>
+                )}
+              </div>
+            </Section>
             <Section
               title="Kenmerken"
               hint="Blokjes onder de foto, bijv. Inhoud: 6 onderdelen. Maximaal 4."

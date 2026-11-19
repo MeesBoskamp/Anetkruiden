@@ -101,6 +101,8 @@ describe("Catalogus uit de database", () => {
       weight_grams: null,
       seo_title: null,
       seo_description: null,
+      animation: null,
+      animation_labels: [],
       created_at: "",
       updated_at: "",
     });

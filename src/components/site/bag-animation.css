@@ -1,0 +1,390 @@
+/* Productanimatie: kraftzak met venster (zie BagAnimation.tsx). Alle klassen beginnen met ba-. */
+@property --ba-p {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 1;
+}
+
+.ba-root {
+  --ba-kraft: #d29858;
+  --ba-kraft-d: #b07940;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0 20px;
+  user-select: none;
+}
+.ba-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  width: 100%;
+}
+.ba-labels {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.35;
+  min-width: 0;
+}
+.ba-labels.ba-left {
+  align-items: flex-end;
+  text-align: right;
+}
+.ba-labels.ba-right {
+  align-items: flex-start;
+  text-align: left;
+}
+.ba-lab {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  transition:
+    opacity 0.45s ease,
+    transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+  max-width: 210px;
+}
+.ba-left .ba-lab {
+  transform: translateX(14px);
+}
+.ba-right .ba-lab {
+  transform: translateX(-14px);
+}
+.ba-lab b {
+  font-weight: 700;
+}
+.ba-lab i {
+  flex: none;
+  width: 5px;
+  height: 5px;
+  background: var(--brand, #d66211);
+}
+.ba-left .ba-lab i {
+  order: 2;
+}
+.ba-xray .ba-lab {
+  opacity: 1;
+  transform: none;
+}
+
+.ba-scene {
+  position: relative;
+  flex: none;
+}
+.ba-fade {
+  position: absolute;
+  inset: 0;
+  perspective: 1400px;
+}
+.ba-bag {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-style: preserve-3d;
+  --ba-p: 1;
+  transition: --ba-p 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.ba-bag.ba-anim {
+  transition: none;
+}
+.ba-face {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 50% 100%;
+  backface-visibility: visible;
+}
+.ba-face > .ba-paper,
+.ba-face > .ba-glass {
+  position: absolute;
+  inset: 0;
+}
+.ba-face > .ba-paper {
+  opacity: var(--ba-p);
+}
+.ba-glass {
+  opacity: calc(1 - var(--ba-p));
+  background:
+    linear-gradient(rgba(120, 112, 104, 0.07), rgba(120, 112, 104, 0.05)),
+    linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0.62),
+      rgba(255, 253, 249, 0.42) 40%,
+      rgba(255, 255, 255, 0.55) 70%,
+      rgba(255, 252, 247, 0.4)
+    );
+  box-shadow:
+    inset 0 0 0 1px rgba(170, 160, 150, 0.45),
+    inset 0 0 6px rgba(150, 140, 130, 0.18);
+}
+.ba-face.ba-side > .ba-glass {
+  background: linear-gradient(
+    90deg,
+    rgba(225, 220, 214, 0.55),
+    rgba(245, 243, 240, 0.45) 50%,
+    rgba(225, 220, 214, 0.55)
+  );
+}
+
+.ba-paper {
+  background-color: var(--ba-kraft);
+  overflow: hidden;
+}
+.ba-paper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: var(--ba-noise);
+  background-size: 220px 220px;
+  mix-blend-mode: multiply;
+  opacity: 0.16;
+}
+.ba-paper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: var(--ba-mottle);
+  background-size: 100% 100%;
+  mix-blend-mode: multiply;
+  opacity: 0.12;
+  z-index: 1;
+}
+.ba-front .ba-paper {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.06),
+      rgba(255, 255, 255, 0.08) 18%,
+      rgba(255, 255, 255, 0.12) 45%,
+      rgba(0, 0, 0, 0.01) 70%,
+      rgba(0, 0, 0, 0.08)
+    ),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.05)),
+    var(--ba-kraft);
+}
+.ba-back .ba-paper {
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.12), rgba(255, 255, 255, 0.05) 40%, rgba(0, 0, 0, 0.14)),
+    var(--ba-kraft);
+}
+.ba-side .ba-paper {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.18),
+      rgba(0, 0, 0, 0.04) 48%,
+      rgba(255, 255, 255, 0.05) 52%,
+      rgba(0, 0, 0, 0.2)
+    ),
+    var(--ba-kraft-d);
+}
+.ba-top .ba-paper {
+  background: linear-gradient(180deg, #b88250, #9c6a3a);
+}
+
+.ba-band {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 8.5%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.04));
+  box-shadow:
+    0 2px 3px rgba(60, 30, 0, 0.22),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.18);
+  z-index: 2;
+}
+.ba-crease {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 86%;
+  height: 2px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(60, 30, 0, 0.22));
+  z-index: 2;
+}
+.ba-crease.ba-c2 {
+  top: 91.5%;
+  opacity: 0.5;
+}
+.ba-win {
+  position: absolute;
+  left: 22%;
+  width: 56%;
+  top: 64%;
+  height: 21.5%;
+  border-radius: 22px / 18px;
+  overflow: hidden;
+  z-index: 3;
+  box-shadow:
+    inset 0 2px 6px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(80, 45, 10, 0.25);
+  background-size: cover;
+  background-position: center;
+}
+.ba-win::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.35),
+    rgba(255, 255, 255, 0) 35%,
+    rgba(255, 255, 255, 0) 70%,
+    rgba(255, 255, 255, 0.18)
+  );
+}
+.ba-seam {
+  position: absolute;
+  top: 8.5%;
+  bottom: 0;
+  right: 7%;
+  width: 2px;
+  background: linear-gradient(90deg, rgba(60, 30, 0, 0.2), rgba(255, 255, 255, 0.18));
+  z-index: 2;
+}
+.ba-tie {
+  position: absolute;
+  top: 0;
+  width: 15%;
+  height: 9%;
+  background: linear-gradient(180deg, #b07a46, #9a6534);
+  z-index: 3;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+}
+.ba-tie.ba-l {
+  left: -2px;
+  border-radius: 0 0 2px 0;
+}
+.ba-tie.ba-r {
+  right: -2px;
+  border-radius: 0 0 0 2px;
+}
+.ba-gus {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.ba-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 50% 100%;
+  background-size: cover;
+  background-position: center;
+}
+.ba-fill.ba-fside::after,
+.ba-fill.ba-ftop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(40, 30, 10, 0.22);
+}
+.ba-fill.ba-ftop::after {
+  background: linear-gradient(180deg, rgba(255, 255, 240, 0.12), rgba(40, 30, 10, 0.12));
+}
+
+.ba-shadow {
+  position: absolute;
+  left: 50%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0) 70%);
+  transform: translateX(-50%);
+  filter: blur(2px);
+  opacity: 0;
+  transition: opacity 1s 0.3s;
+}
+.ba-shadow.ba-on {
+  opacity: 1;
+}
+
+.ba-btn {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  font: inherit;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  padding: 7px 14px;
+  border: 0;
+  border-radius: 2px;
+  cursor: pointer;
+  opacity: 0;
+  transition:
+    opacity 0.25s,
+    background 0.25s,
+    color 0.25s;
+  background: var(--brand-deep, #b4510c);
+  color: #fff;
+}
+.ba-scene:hover .ba-btn,
+.ba-btn:focus-visible,
+.ba-touch .ba-btn {
+  opacity: 1;
+}
+.ba-xray .ba-btn {
+  background: #f1efec;
+  color: #333;
+}
+
+.ba-replay {
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+  font: inherit;
+  font-size: 12px;
+  color: var(--muted-foreground, #8a8580);
+  background: none;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  padding: 2px 0;
+  cursor: pointer;
+}
+.ba-replay:hover {
+  color: var(--ink, #1d1a17);
+}
+
+.ba-mobile {
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 18px;
+  width: 100%;
+  max-width: 360px;
+  padding: 0 16px;
+  font-size: 13px;
+  font-weight: 300;
+}
+.ba-mobile .ba-lab {
+  max-width: none;
+  transform: translateY(8px);
+}
+.ba-xray .ba-mobile .ba-lab {
+  transform: none;
+}
+.ba-narrow .ba-stage {
+  flex-direction: column;
+  gap: 12px;
+}
+.ba-narrow .ba-labels {
+  display: none;
+}
+.ba-narrow .ba-mobile {
+  display: grid;
+}
+.ba-narrow .ba-replay {
+  top: 10px;
+  bottom: auto;
+}
