@@ -39,9 +39,9 @@ describe("Pagina's", () => {
 });
 
 describe("Producten", () => {
-  it("heeft 5 producten met unieke slugs en prijs in centen", () => {
-    expect(products).toHaveLength(5);
-    expect(new Set(products.map((p) => p.slug)).size).toBe(5);
+  it("heeft 6 producten met unieke slugs en prijs in centen", () => {
+    expect(products).toHaveLength(6);
+    expect(new Set(products.map((p) => p.slug)).size).toBe(6);
     for (const p of products) {
       expect(Number.isInteger(p.priceCents)).toBe(true);
       expect(p.priceCents).toBeGreaterThan(0);
